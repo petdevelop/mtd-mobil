@@ -158,7 +158,7 @@
         "speakerNames": ["Ellie Elephant"],
         "timeStart": "9:15 am",
         "timeEnd": "9:30 am",
-        "tracks": ["Ionic"]
+        "tracks": ["Alerts"]
       }, {
         "dateDay": "29",
         "name": "Getting started with Ionic",
@@ -167,7 +167,7 @@
         "speakerNames": ["Ted Turtle"],
         "timeStart": "9:30 am",
         "timeEnd": "9:45 am",
-        "tracks": ["Ionic"]
+        "tracks": ["Chargebacks"]
       }, {
         "dateDay": "28",
         "name": "Tooling for Ionic",
@@ -195,7 +195,7 @@
         "speakerNames": ["Rachel Rabbit"],
         "timeStart": "10:15 am",
         "timeEnd": "10:30 am",
-        "tracks": ["Angular"]
+        "tracks": ["Ionic"]
       }, {
         "name": "The evolution of Ionicons",
         "location": "Room 2202",
@@ -313,7 +313,7 @@
         "speakerNames": ["Ted Turtle"],
         "timeStart": "3:00 pm",
         "timeEnd": "3:30 pm",
-        "tracks": ["Angular"]
+        "tracks": ["Alerts"]
       }, {
         "name": "Mobile States",
         "location": "Room 2202",
