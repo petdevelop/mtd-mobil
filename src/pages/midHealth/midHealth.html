@@ -16,7 +16,7 @@
 
           <ion-card class="speaker-card">
             <ion-card-header>
-              <button ion-item detail-none (click)="goToSpeakerDetail(speaker)">
+              <button ion-item detail-none>
                 <ion-avatar item-left>
                   <img [src]="speaker.profilePic" alt="Speaker profile pic">
                 </ion-avatar>
@@ -26,11 +26,11 @@
 
             <ion-card-content class="outer-content">
               <ion-list>
-                <button ion-item *ngFor="let session of speaker.sessions" (click)="goToMonthToDateDetail(session)">
+                <button ion-item *ngFor="let session of speaker.sessions">
                   <h3>{{session.name}}</h3>
                 </button>
 
-                <button ion-item (click)="goToSpeakerDetail(speaker)">
+                <button ion-item>
                   <h3>ResultantKpi {{speaker.name}}</h3>
                 </button>
               </ion-list>
@@ -38,19 +38,19 @@
 
             <ion-row no-padding>
               <ion-col col-12 col-lg-auto text-center text-lg-left>
-                <button ion-button clear small color="danger" icon-left (click)="goToSpeakerTwitter(speaker)">
+                <button ion-button clear small color="danger" icon-left>
                   <ion-icon name="logo-twitter"></ion-icon>
                   Tweet
                 </button>
               </ion-col>
               <ion-col col-12 col-lg-auto text-center>
-                <button ion-button clear small color="danger" icon-left (click)="openSpeakerShare(speaker)">
+                <button ion-button clear small color="danger" icon-left>
                   <ion-icon name='share-alt'></ion-icon>
                   Share
                 </button>
               </ion-col>
               <ion-col col-12 col-lg-auto text-center text-lg-right>
-                <button ion-button clear small color="danger" icon-left (click)="openContact(speaker)">
+                <button ion-button clear small color="danger" icon-left>
                   <ion-icon name='chatboxes'></ion-icon>
                   Contact
                 </button>

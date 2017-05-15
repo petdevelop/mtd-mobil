@@ -18,7 +18,6 @@ import { MonthToDatePage } from '../pages/monthToDateReport/monthToDate/monthToD
 import { MonthToDateFilterPage } from '../pages/monthToDateReport/monthToDateFilter/monthToDateFilter';
 import { MonthToDateDetailPage } from '../pages/monthToDateReport/monthToDateDetail/monthToDateDetail';
 import { SignupPage } from '../pages/signup/signup';
-import { SpeakerDetailPage } from '../pages/speaker-detail/speaker-detail';
 import { MidHealthPage } from '../pages/midHealth/midHealth';
 import { TabsPage } from '../pages/tabs/tabs';
 import { SupportPage } from '../pages/support/support';
@@ -39,7 +38,6 @@ import { UserData } from '../providers/user-data';
     MonthToDateFilterPage,
     MonthToDateDetailPage,
     SignupPage,
-    SpeakerDetailPage,
     MidHealthPage,
     TabsPage,
     SupportPage,
@@ -56,7 +54,6 @@ import { UserData } from '../providers/user-data';
         { component: MonthToDateDetailPage, name: 'MonthToDateDetail', segment: 'sessionDetail/:name' },
         { component: MonthToDateFilterPage, name: 'MonthToDateFilter', segment: 'monthToDateFilter' },
         { component: MidHealthPage, name: 'MidHealth', segment: 'midHealth' },
-        { component: SpeakerDetailPage, name: 'SpeakerDetail', segment: 'speakerDetail/:name' },
         { component: ResultantKpiPage, name: 'ResultantKpi', segment: 'resultantKpi' },
         { component: SupportPage, name: 'SupportPage', segment: 'support' },
         { component: LoginPage, name: 'LoginPage', segment: 'login' },
@@ -78,7 +75,6 @@ import { UserData } from '../providers/user-data';
     MonthToDateFilterPage,
     MonthToDateDetailPage,
     SignupPage,
-    SpeakerDetailPage,
     MidHealthPage,
     TabsPage,
     SupportPage,

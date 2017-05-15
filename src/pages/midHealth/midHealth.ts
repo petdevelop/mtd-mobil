@@ -6,7 +6,6 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { ConferenceData } from '../../providers/conference-data';
 
 import { MonthToDateDetailPage } from '../monthToDateReport/monthToDateDetail/monthToDateDetail';
-import { SpeakerDetailPage } from '../speaker-detail/speaker-detail';
 
 @Component({
   selector: 'page-midHealth',
@@ -38,10 +37,7 @@ export class MidHealthPage {
   }
 
   goToSpeakerDetail(speakerName: any) {
-    this.navCtrl.push(SpeakerDetailPage, { 
-      speaker: speakerName,
-      name: speakerName.name
-    });
+   
   }
 
   goToSpeakerTwitter(speaker: any) {
