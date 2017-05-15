@@ -3,7 +3,7 @@ import { Events, MenuController, Nav, Platform } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Storage } from '@ionic/storage';
 
-import { AboutPage } from '../pages/about/about';
+import { ResultantKpiPage } from '../pages/resultantKpi/resultantKpi';
 import { AccountPage } from '../pages/account/account';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
@@ -44,7 +44,7 @@ export class ConferenceApp {
   appPages: PageInterface[] = [
     { title: 'Month-to-Date', name: 'TabsPage', component: TabsPage, tabComponent: MonthToDatePage, index: 0, icon: 'calendar' },
     { title: 'MID Health', name: 'TabsPage', component: TabsPage, tabComponent: MidHealthPage, index: 1, icon: 'contacts' },
-    { title: 'Resultant KPI', name: 'TabsPage', component: TabsPage, tabComponent: AboutPage, index: 2, icon: 'alarm' },
+    { title: 'Resultant KPI', name: 'TabsPage', component: TabsPage, tabComponent: ResultantKpiPage, index: 2, icon: 'alarm' },
     { title: 'MAC Reports', name: 'TabsPage', component: TabsPage, tabComponent: ChartPage, index: 3, icon: 'analytics' }
   ];
   loggedInPages: PageInterface[] = [

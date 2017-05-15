@@ -11,8 +11,7 @@ import { IonicStorageModule } from '@ionic/storage';
 
 import { ConferenceApp } from './app.component';
 
-import { AboutPage } from '../pages/about/about';
-import { PopoverPage } from '../pages/about-popover/about-popover';
+import { ResultantKpiPage } from '../pages/resultantKpi/resultantKpi';
 import { AccountPage } from '../pages/account/account';
 import { LoginPage } from '../pages/login/login';
 import { MonthToDatePage } from '../pages/monthToDateReport/monthToDate/monthToDate';
@@ -33,10 +32,9 @@ import { UserData } from '../providers/user-data';
 @NgModule({
   declarations: [
     ConferenceApp,
-    AboutPage,
+    ResultantKpiPage,
     AccountPage,
     LoginPage,
-    PopoverPage,
     MonthToDatePage,
     MonthToDateFilterPage,
     MonthToDateDetailPage,
@@ -59,7 +57,7 @@ import { UserData } from '../providers/user-data';
         { component: MonthToDateFilterPage, name: 'MonthToDateFilter', segment: 'monthToDateFilter' },
         { component: MidHealthPage, name: 'MidHealth', segment: 'midHealth' },
         { component: SpeakerDetailPage, name: 'SpeakerDetail', segment: 'speakerDetail/:name' },
-        { component: AboutPage, name: 'About', segment: 'about' },
+        { component: ResultantKpiPage, name: 'ResultantKpi', segment: 'resultantKpi' },
         { component: SupportPage, name: 'SupportPage', segment: 'support' },
         { component: LoginPage, name: 'LoginPage', segment: 'login' },
         { component: AccountPage, name: 'AccountPage', segment: 'account' },
@@ -73,10 +71,9 @@ import { UserData } from '../providers/user-data';
   bootstrap: [IonicApp],
   entryComponents: [
     ConferenceApp,
-    AboutPage,
+    ResultantKpiPage,
     AccountPage,
     LoginPage,
-    PopoverPage,
     MonthToDatePage,
     MonthToDateFilterPage,
     MonthToDateDetailPage,
