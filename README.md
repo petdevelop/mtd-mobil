@@ -2,7 +2,7 @@
 ## File Structure of App
 
 ```
-ionic-conference-app/
+app/
 ├-- .github/                            * GitHub files
 │   ├── CONTRIBUTING.md                 * Documentation on contributing to this repo
 │   └── ISSUE_TEMPLATE.md               * Template used to populate issues in this repo
