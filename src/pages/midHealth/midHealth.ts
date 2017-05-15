@@ -5,14 +5,14 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 import { ConferenceData } from '../../providers/conference-data';
 
-import { SessionDetailPage } from '../session-detail/session-detail';
+import { MonthToDateDetailPage } from '../monthToDateReport/monthToDateDetail/monthToDateDetail';
 import { SpeakerDetailPage } from '../speaker-detail/speaker-detail';
 
 @Component({
-  selector: 'page-speaker-list',
-  templateUrl: 'speaker-list.html'
+  selector: 'page-midHealth',
+  templateUrl: 'midHealth.html'
 })
-export class SpeakerListPage {
+export class MidHealthPage {
   actionSheet: ActionSheet;
   speakers: any[] = [];
 
@@ -30,8 +30,8 @@ export class SpeakerListPage {
     });
   }
 
-  goToSessionDetail(session: any) {
-    this.navCtrl.push(SessionDetailPage, { 
+  goToMonthToDateDetail(session: any) {
+    this.navCtrl.push(MonthToDateDetailPage, { 
       name: session.name,
       session: session
     });

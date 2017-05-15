@@ -1,0 +1,17 @@
+
+ion-card-header {
+  color: color($colors, danger);
+}
+
+ion-col {
+  white-space: normal;
+}
+
+.mtd-values {
+  font-size: 13px;
+  padding: 0;
+}
+
+.swiper-pagination-bullet-active  {
+  background-color: color($colors, danger);
+}

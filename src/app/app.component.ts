@@ -6,12 +6,10 @@ import { Storage } from '@ionic/storage';
 import { AboutPage } from '../pages/about/about';
 import { AccountPage } from '../pages/account/account';
 import { LoginPage } from '../pages/login/login';
-import { MapPage } from '../pages/map/map';
 import { SignupPage } from '../pages/signup/signup';
 import { TabsPage } from '../pages/tabs/tabs';
-import { TutorialPage } from '../pages/tutorial/tutorial';
-import { SchedulePage } from '../pages/schedule/schedule';
-import { SpeakerListPage } from '../pages/speaker-list/speaker-list';
+import { MonthToDatePage } from '../pages/monthToDateReport/monthToDate/monthToDate';
+import { MidHealthPage } from '../pages/midHealth/midHealth';
 import { SupportPage } from '../pages/support/support';
 import { ChartPage } from '../pages/chart/chart';
 
@@ -37,20 +35,22 @@ export class ConferenceApp {
   // @ViewChild(Nav) gets a reference to the app's root nav
   @ViewChild(Nav) nav: Nav;
 
+  // store the pages of the menu depending on the logged in status
+  isLoggedIn: boolean = false;
+
   // List of pages that can be navigated to from the left menu
   // the left menu only works after login
   // the login page disables the left menu
   appPages: PageInterface[] = [
-    { title: 'Schedule', name: 'Tabs', component: TabsPage, tabComponent: SchedulePage, index: 0, icon: 'calendar' },
-    { title: 'Speakers', name: 'Tabs', component: TabsPage, tabComponent: SpeakerListPage, index: 1, icon: 'contacts' },
-    { title: 'Map', name: 'Tabs', component: TabsPage, tabComponent: MapPage, index: 2, icon: 'map' },
-    { title: 'About', name: 'Tabs', component: TabsPage, tabComponent: AboutPage, index: 3, icon: 'information-circle' },
-    { title: 'Chart', name: 'Tabs', component: TabsPage, tabComponent: ChartPage, index: 4, icon: 'information-circle' }
+    { title: 'Month-to-Date', name: 'TabsPage', component: TabsPage, tabComponent: MonthToDatePage, index: 0, icon: 'calendar' },
+    { title: 'MID Health', name: 'TabsPage', component: TabsPage, tabComponent: MidHealthPage, index: 1, icon: 'contacts' },
+    { title: 'Resultant KPI', name: 'TabsPage', component: TabsPage, tabComponent: AboutPage, index: 2, icon: 'alarm' },
+    { title: 'MAC Reports', name: 'TabsPage', component: TabsPage, tabComponent: ChartPage, index: 3, icon: 'analytics' }
   ];
   loggedInPages: PageInterface[] = [
     { title: 'Account', name: 'AccountPage', component: AccountPage, icon: 'person' },
     { title: 'Support', name: 'SupportPage', component: SupportPage, icon: 'help' },
-    { title: 'Logout', name: 'Tabs', component: TabsPage, icon: 'log-out', logsOut: true }
+    { title: 'Logout', name: 'TabsPage', component: TabsPage, icon: 'log-out', logsOut: true }
   ];
   loggedOutPages: PageInterface[] = [
     { title: 'Login', name: 'LoginPage', component: LoginPage, icon: 'log-in' },
@@ -69,25 +69,18 @@ export class ConferenceApp {
     public splashScreen: SplashScreen
   ) {
 
-    // Check if the user has already seen the tutorial
-    this.storage.get('hasSeenTutorial')
-      .then((hasSeenTutorial) => {
-        if (hasSeenTutorial) {
-          this.rootPage = TabsPage;
-        } else {
-          this.rootPage = TutorialPage;
-        }
-        this.platformReady()
-      });
+    // set tabs as root page
+    this.rootPage = TabsPage;
 
     // load the conference data
     confData.load();
 
     // decide which menu items should be hidden by current login status stored in local storage
     this.userData.hasLoggedIn().then((hasLoggedIn) => {
-      this.enableMenu(hasLoggedIn === true);
+      if (hasLoggedIn === true) {
+        this.isLoggedIn = true;
+      }
     });
-    this.enableMenu(true);
 
     this.listenToLoginEvents();
   }
@@ -120,27 +113,23 @@ export class ConferenceApp {
     }
   }
 
-  openTutorial() {
-    this.nav.setRoot(TutorialPage);
-  }
-
   listenToLoginEvents() {
     this.events.subscribe('user:login', () => {
-      this.enableMenu(true);
+      this.isLoggedIn = true;
     });
 
     this.events.subscribe('user:signup', () => {
-      this.enableMenu(true);
+      this.isLoggedIn = true;
     });
 
     this.events.subscribe('user:logout', () => {
-      this.enableMenu(false);
+      this.isLoggedIn = false;
+      this.nav.setRoot('LoginPage');
     });
   }
 
   enableMenu(loggedIn: boolean) {
-    this.menu.enable(loggedIn, 'loggedInMenu');
-    this.menu.enable(!loggedIn, 'loggedOutMenu');
+    this.menu.enable(loggedIn, 'leftMenu');
   }
 
   platformReady() {

@@ -2,14 +2,14 @@ import { Component } from '@angular/core';
 
 import { NavParams, ViewController } from 'ionic-angular';
 
-import { ConferenceData } from '../../providers/conference-data';
+import { ConferenceData } from '../../../providers/conference-data';
 
 
 @Component({
-  selector: 'page-schedule-filter',
-  templateUrl: 'schedule-filter.html'
+  selector: 'page-monthToDateFilter',
+  templateUrl: 'monthToDateFilter.html'
 })
-export class ScheduleFilterPage {
+export class MonthToDateFilterPage {
   tracks: Array<{name: string, isChecked: boolean}> = [];
 
   constructor(

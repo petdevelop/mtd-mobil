@@ -15,17 +15,16 @@ import { AboutPage } from '../pages/about/about';
 import { PopoverPage } from '../pages/about-popover/about-popover';
 import { AccountPage } from '../pages/account/account';
 import { LoginPage } from '../pages/login/login';
-import { MapPage } from '../pages/map/map';
-import { SchedulePage } from '../pages/schedule/schedule';
-import { ScheduleFilterPage } from '../pages/schedule-filter/schedule-filter';
-import { SessionDetailPage } from '../pages/session-detail/session-detail';
+import { MonthToDatePage } from '../pages/monthToDateReport/monthToDate/monthToDate';
+import { MonthToDateFilterPage } from '../pages/monthToDateReport/monthToDateFilter/monthToDateFilter';
+import { MonthToDateDetailPage } from '../pages/monthToDateReport/monthToDateDetail/monthToDateDetail';
 import { SignupPage } from '../pages/signup/signup';
 import { SpeakerDetailPage } from '../pages/speaker-detail/speaker-detail';
-import { SpeakerListPage } from '../pages/speaker-list/speaker-list';
+import { MidHealthPage } from '../pages/midHealth/midHealth';
 import { TabsPage } from '../pages/tabs/tabs';
-import { TutorialPage } from '../pages/tutorial/tutorial';
 import { SupportPage } from '../pages/support/support';
 import { ChartPage } from '../pages/chart/chart';
+import { MonthToDateCardPage } from '../pages/monthToDateReport/monthToDateCard/monthToDateCard';
 
 import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
@@ -37,18 +36,17 @@ import { UserData } from '../providers/user-data';
     AboutPage,
     AccountPage,
     LoginPage,
-    MapPage,
     PopoverPage,
-    SchedulePage,
-    ScheduleFilterPage,
-    SessionDetailPage,
+    MonthToDatePage,
+    MonthToDateFilterPage,
+    MonthToDateDetailPage,
     SignupPage,
     SpeakerDetailPage,
-    SpeakerListPage,
+    MidHealthPage,
     TabsPage,
-    TutorialPage,
     SupportPage,
-    ChartPage
+    ChartPage,
+    MonthToDateCardPage
   ],
   imports: [
     BrowserModule,
@@ -56,19 +54,18 @@ import { UserData } from '../providers/user-data';
     IonicModule.forRoot(ConferenceApp, {}, {
       links: [
         { component: TabsPage, name: 'TabsPage', segment: 'tabs' },
-        { component: SchedulePage, name: 'Schedule', segment: 'schedule' },
-        { component: SessionDetailPage, name: 'SessionDetail', segment: 'sessionDetail/:name' },
-        { component: ScheduleFilterPage, name: 'ScheduleFilter', segment: 'scheduleFilter' },
-        { component: SpeakerListPage, name: 'SpeakerList', segment: 'speakerList' },
+        { component: MonthToDatePage, name: 'MonthToDate', segment: 'monthToDate' },
+        { component: MonthToDateDetailPage, name: 'MonthToDateDetail', segment: 'sessionDetail/:name' },
+        { component: MonthToDateFilterPage, name: 'MonthToDateFilter', segment: 'monthToDateFilter' },
+        { component: MidHealthPage, name: 'MidHealth', segment: 'midHealth' },
         { component: SpeakerDetailPage, name: 'SpeakerDetail', segment: 'speakerDetail/:name' },
-        { component: MapPage, name: 'Map', segment: 'map' },
         { component: AboutPage, name: 'About', segment: 'about' },
-        { component: TutorialPage, name: 'Tutorial', segment: 'tutorial' },
         { component: SupportPage, name: 'SupportPage', segment: 'support' },
         { component: LoginPage, name: 'LoginPage', segment: 'login' },
         { component: AccountPage, name: 'AccountPage', segment: 'account' },
         { component: SignupPage, name: 'SignupPage', segment: 'signup' },
-        { component: ChartPage, name: 'ChartPage', segment: 'chart' }
+        { component: ChartPage, name: 'ChartPage', segment: 'chart' },
+        { component: MonthToDateCardPage, name: 'MonthToDateCardPage', segment: 'monthToDateCardPage' },
       ]
     }),
     IonicStorageModule.forRoot()
@@ -79,16 +76,14 @@ import { UserData } from '../providers/user-data';
     AboutPage,
     AccountPage,
     LoginPage,
-    MapPage,
     PopoverPage,
-    SchedulePage,
-    ScheduleFilterPage,
-    SessionDetailPage,
+    MonthToDatePage,
+    MonthToDateFilterPage,
+    MonthToDateDetailPage,
     SignupPage,
     SpeakerDetailPage,
-    SpeakerListPage,
+    MidHealthPage,
     TabsPage,
-    TutorialPage,
     SupportPage,
     ChartPage
   ],

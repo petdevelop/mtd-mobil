@@ -28,8 +28,8 @@ export class ConferenceData {
 
     this.data.tracks = [];
 
-    // loop through each day in the schedule
-    this.data.schedule.forEach((day: any) => {
+    // loop through each day in the monthToDate
+    this.data.monthToDate.forEach((day: any) => {
       // loop through each timeline group in the day
       day.groups.forEach((group: any) => {
         // loop through each session in the timeline group
@@ -62,7 +62,7 @@ export class ConferenceData {
 
   getTimeline(dayIndex: number, queryText = '', excludeTracks: any[] = [], segment = 'all') {
     return this.load().map((data: any) => {
-      let day = data.schedule[dayIndex];
+      let day = data.monthToDate[dayIndex];
       day.shownSessions = 0;
 
       queryText = queryText.toLowerCase().replace(/,|\.|-/g, ' ');

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import { NavController, NavParams } from 'ionic-angular';
 
-import { SessionDetailPage } from '../session-detail/session-detail';
+import { MonthToDateDetailPage } from '../monthToDateReport/monthToDateDetail/monthToDateDetail';
 
 @Component({
   selector: 'page-speaker-detail',
@@ -15,8 +15,8 @@ export class SpeakerDetailPage {
     this.speaker = this.navParams.data.speaker;
   }
 
-  goToSessionDetail(session: any) {
-    this.navCtrl.push(SessionDetailPage, { 
+  goToMonthToDateDetail(session: any) {
+    this.navCtrl.push(MonthToDateDetailPage, { 
       name: session.name,
       session: session
     });

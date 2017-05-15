@@ -8,23 +8,23 @@ import { AlertController, App, FabContainer, ItemSliding, List, ModalController,
 */
 // import moment from 'moment';
 
-import { ConferenceData } from '../../providers/conference-data';
-import { UserData } from '../../providers/user-data';
+import { ConferenceData } from '../../../providers/conference-data';
+import { UserData } from '../../../providers/user-data';
 
-import { SessionDetailPage } from '../session-detail/session-detail';
-import { ScheduleFilterPage } from '../schedule-filter/schedule-filter';
+import { MonthToDateDetailPage } from '../monthToDateDetail/monthToDateDetail';
+import { MonthToDateFilterPage } from '../monthToDateFilter/monthToDateFilter';
 
 
 @Component({
-  selector: 'page-schedule',
-  templateUrl: 'schedule.html'
+  selector: 'page-monthToDate',
+  templateUrl: 'monthToDate.html'
 })
-export class SchedulePage {
-  // the list is a child of the schedule page
-  // @ViewChild('scheduleList') gets a reference to the list
-  // with the variable #scheduleList, `read: List` tells it to return
+export class MonthToDatePage {
+  // the list is a child of the monthToDate page
+  // @ViewChild('monthToDateList') gets a reference to the list
+  // with the variable #monthToDateList, `read: List` tells it to return
   // the List and not a reference to the element
-  @ViewChild('scheduleList', { read: List }) scheduleList: List;
+  @ViewChild('monthToDateList', { read: List }) monthToDateList: List;
 
   dayIndex = 0;
   queryText = '';
@@ -46,13 +46,13 @@ export class SchedulePage {
   ) {}
 
   ionViewDidLoad() {
-    this.app.setTitle('Schedule');
-    this.updateSchedule();
+    this.app.setTitle('MonthToDate');
+    this.updateMonthToDate();
   }
 
-  updateSchedule() {
-    // Close any open sliding items when the schedule updates
-    this.scheduleList && this.scheduleList.closeSlidingItems();
+  updateMonthToDate() {
+    // Close any open sliding items when the monthToDate updates
+    this.monthToDateList && this.monthToDateList.closeSlidingItems();
 
     this.confData.getTimeline(this.dayIndex, this.queryText, this.excludeTracks, this.segment).subscribe((data: any) => {
       this.shownSessions = data.shownSessions;
@@ -61,22 +61,22 @@ export class SchedulePage {
   }
 
   presentFilter() {
-    let modal = this.modalCtrl.create(ScheduleFilterPage, this.excludeTracks);
+    let modal = this.modalCtrl.create(MonthToDateFilterPage, this.excludeTracks);
     modal.present();
 
     modal.onWillDismiss((data: any[]) => {
       if (data) {
         this.excludeTracks = data;
-        this.updateSchedule();
+        this.updateMonthToDate();
       }
     });
 
   }
 
-  goToSessionDetail(sessionData: any) {
+  goToMonthToDateDetail(sessionData: any) {
     // go to the session detail page
     // and pass in the session data
-    this.navCtrl.push(SessionDetailPage, {
+    this.navCtrl.push(MonthToDateDetailPage, {
       name: sessionData.name,
       session: sessionData
     });
@@ -127,7 +127,7 @@ export class SchedulePage {
           handler: () => {
             // they want to remove this session from their favorites
             this.user.removeFavorite(sessionData.name);
-            this.updateSchedule();
+            this.updateMonthToDate();
 
             // close the sliding item and hide the option buttons
             slidingItem.close();

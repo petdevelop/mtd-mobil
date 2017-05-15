@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>April, 29 2017</ion-title>
+
+  </ion-navbar>
+      <ion-toolbar no-border-top>
+    
+      <ion-segment [(ngModel)]="location">
+        <ion-segment-button value="domestic">
+          Domestic
+        </ion-segment-button>
+        <ion-segment-button value="offshore">
+          Offshore
+        </ion-segment-button>
+      </ion-segment>
+  </ion-toolbar>
+
+  
+</ion-header>
+
+<ion-content>
+
+    <ion-list>
+        <ion-slides [hidden]="location == 'offshore'" #slides pager>
+          <page-month-to-date-card [data]="params.segments.domestic[0]"></page-month-to-date-card>
+          <page-month-to-date-card [data]="params.segments.domestic[1]"></page-month-to-date-card>
+          <page-month-to-date-card [data]="params.segments.domestic[2]"></page-month-to-date-card>
+          <page-month-to-date-card [data]="params.segments.domestic[3]"></page-month-to-date-card>
+          <page-month-to-date-card [data]="params.segments.domestic[4]"></page-month-to-date-card>
+          <page-month-to-date-card [data]="params.segments.domestic[5]"></page-month-to-date-card>
+          <page-month-to-date-card [data]="params.segments.domestic[6]"></page-month-to-date-card>
+        </ion-slides>
+        
+        <ion-slides [hidden]="location == 'domestic'" #slides pager>
+          <page-month-to-date-card [data]="params.segments.offshore[0]"></page-month-to-date-card>
+          <page-month-to-date-card [data]="params.segments.offshore[1]"></page-month-to-date-card>
+          <page-month-to-date-card [data]="params.segments.offshore[2]"></page-month-to-date-card>
+          <page-month-to-date-card [data]="params.segments.offshore[3]"></page-month-to-date-card>
+          <page-month-to-date-card [data]="params.segments.offshore[4]"></page-month-to-date-card>
+          <page-month-to-date-card [data]="params.segments.offshore[5]"></page-month-to-date-card>
+        </ion-slides>
+    </ion-list>
+
+</ion-content>

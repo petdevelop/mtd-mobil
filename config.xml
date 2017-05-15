@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.conferenceapp" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Ionic Conference</name>
+<widget id="app.chargebacks911.client" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Chargebacks911</name>
     <description>
-        An Ionic Framework application for the Ionic Conference.
+        Chargebacks911 client mobil app
   </description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">
-      Ionic Framework Team
+    <author email="parronte@chagebacks911.com" href="http://ionicframework.com/">
+      Chargebacks911 Team
   </author>
     <content src="index.html" />
     <access origin="*" />

@@ -3,9 +3,8 @@ import { Component } from '@angular/core';
 import { NavParams } from 'ionic-angular';
 
 import { AboutPage } from '../about/about';
-import { MapPage } from '../map/map';
-import { SchedulePage } from '../schedule/schedule';
-import { SpeakerListPage } from '../speaker-list/speaker-list';
+import { MonthToDatePage } from '../monthToDateReport/monthToDate/monthToDate';
+import { MidHealthPage } from '../midHealth/midHealth';
 import { ChartPage } from '../chart/chart';
 
 @Component({
@@ -13,11 +12,10 @@ import { ChartPage } from '../chart/chart';
 })
 export class TabsPage {
   // set the root pages for each tab
-  tab1Root: any = SchedulePage;
-  tab2Root: any = SpeakerListPage;
-  tab3Root: any = MapPage;
-  tab4Root: any = AboutPage;
-  tab5Root: any = ChartPage;
+  tab1Root: any = MonthToDatePage;
+  tab2Root: any = MidHealthPage;
+  tab3Root: any = AboutPage;
+  tab4Root: any = ChartPage;
   mySelectedIndex: number;
 
   constructor(navParams: NavParams) {

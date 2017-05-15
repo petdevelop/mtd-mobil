@@ -1,16 +1,147 @@
 {
 
-  "schedule": [{
-    "date": "2047-05-17",
+  "monthToDate": [{
     "groups": [{
-      "time": "8:00 am",
+      "dateYearMonth": "April, 2017",
       "sessions": [{
-        "name": "Breakfast",
-        "timeStart": "8:00 am",
-        "timeEnd": "9:00 am",
+        "dateDay": "30",
+        "tracks": ["Food"],
+        "segments": {
+          "domestic" :   [{  
+             "title": "MID",
+             "columns": ["Gateway ID", "MID", "MID Alias"],
+             "rows": [
+                ["3", "1093281400", "Amex CB911"],
+                ["6", "0153040004553",	"Evo Inhouse"],
+                ["7",	"941000128117",	"APS InHouse"],
+                ["8",	"21000128112",	"Visa InHouse"]
+              ]}, {   
+              "title": "Totals",      
+              "columns": ["Total Dollars", "Total Trans", "Total CB", "CB %"],
+              "rows": [
+                  ["$0.00",	"0", "0", "0%"],
+                  ["$0.00",	"0", "0", "0%"],
+                  ["$62,907.47", "15", "0", "0%"],
+                  ["$0.00",	"0", "0", "0%"]
+              ]}, {
+              "title": "Transactions",         
+              "columns": ["Average Trans", "Trans Needed"],
+              "rows": [
+                  ["0", "0"],
+                  ["0", "0"],
+                  ["4,194", "0"],
+                  ["4,194", "0"]
+              ]}, {
+              "title": "Visa",         
+              "columns": ["Sales Count", "CB", "CB Value", "CB %"],
+              "rows": [
+                  ["0", "0", "$0.00", "0%"],
+                  ["0", "0", "$0.00", "0%"],
+                  ["0", "0", "$0.00", "0%"],
+                  ["0", "0", "$0.00", "0%"]
+            ]}, {
+              "title": "MasterCard",         
+              "columns": ["Sales Count", "CB", "CB Value", "MC CB %"],
+              "rows": [
+                  ["0", "0", "$0.00", "0%"],
+                  ["0", "0", "$0.00", "0%"],
+                  ["0", "0", "$0.00", "0%"],
+                  ["0", "0", "$0.00", "0%"]
+            ]}, {
+              "title": "Discover",         
+              "columns": ["Sales Count", "CB", "CB Value", "CB %"],
+              "rows": [
+                  ["0", "0", "$0.00", "0%"],
+                  ["0", "0", "$0.00", "0%"],
+                  ["0", "0", "$0.00", "0%"],
+                  ["0", "0", "$0.00", "0%"]
+            ]}, {
+              "title": "Amex",         
+              "columns": ["Sales Count", "CB", "CB Value", "CB %"],
+              "rows": [
+                  ["0", "0", "$0.00", "0%"],
+                  ["0", "0", "$0.00", "0%"],
+                  ["0", "0", "$0.00", "0%"],
+                  ["0", "0", "$0.00", "0%"]
+              ]}
+          ],
+          "offshore" :   [{  
+              "title": "MID",
+              "columns": ["Gateway ID", "MID", "MID Alias"],
+              "rows": [
+                ["3", "1093281400", "Amex CB911"],
+                ["6", "0153040004553",	"Evo Inhouse"],
+                ["7",	"941000128117",	"APS InHouse"]
+              ]}, {  
+              "title": "Currency",
+              "columns": ["Currency", "Sales Volume"],
+              "rows": [
+                ["3", "1093281400"],
+                ["6", "0153040004553"],
+                ["7",	"941000128117"]
+              ]}, {   
+              "title": "Totals",      
+              "columns": ["Total Dollars", "Total Trans", "Total CB", "CB %"],
+              "rows": [
+                  ["$0.00",	"0", "0", "0%"],
+                  ["$0.00",	"0", "0", "0%"],
+                  ["$62,907.47", "15", "0", "0%"]
+              ]}, {
+              "title": "Transactions",         
+              "columns": ["Average Trans", "Trans Needed"],
+              "rows": [
+                  ["0", "0"],
+                  ["0", "0"],
+                  ["4,194", "0"]
+              ]}, {
+              "title": "Visa",         
+              "columns": ["Sales Count", "CB", "CB Value", "CB %"],
+              "rows": [
+                  ["0", "0", "$0.00", "0%"],
+                  ["0", "0", "$0.00", "0%"],
+                  ["0", "0", "$0.00", "0%"],
+                  ["0", "0", "$0.00", "0%"]
+            ]}, {
+              "title": "MasterCard",         
+              "columns": ["Sales Count", "CB", "CB Value", "MC CB %"],
+              "rows": [
+                  ["0", "0", "$0.00", "0%"],
+                  ["0", "0", "$0.00", "0%"],
+                  ["0", "0", "$0.00", "0%"],
+                  ["0", "0", "$0.00", "0%"]
+            ]}
+          ]
+        }
+      }, {
+        "dateDay": "29",
+        "name": "Meet and Greet",
+        "timeStart": "9:00 am",
+        "timeEnd": "9:15 am",
         "location": "Main hallway",
         "tracks": ["Food"]
       }, {
+        "dateDay": "28",
+        "name": "Meet and Greet",
+        "timeStart": "9:00 am",
+        "timeEnd": "9:15 am",
+        "location": "Main hallway",
+        "tracks": ["Food"]
+      }, {
+        "dateDay": "27",
+        "name": "Meet and Greet",
+        "timeStart": "9:00 am",
+        "timeEnd": "9:15 am",
+        "location": "Main hallway",
+        "tracks": ["Food"]
+      }, {
+        "dateDay": "26",
+        "name": "Meet and Greet",
+        "timeStart": "9:00 am",
+        "timeEnd": "9:15 am",
+        "location": "Main hallway",
+        "tracks": ["Food"]
+      }, {
+        "dateDay": "25",
         "name": "Meet and Greet",
         "timeStart": "9:00 am",
         "timeEnd": "9:15 am",
@@ -18,8 +149,9 @@
         "tracks": ["Food"]
       }]
     }, {
-      "time": "9:15 am",
+      "dateYearMonth": "March, 2017",
       "sessions": [{
+        "dateDay": "30",
         "name": "Introduction to Appcamp.io",
         "location": "Room 2203",
         "description": "Mobile devices and browsers are now advanced enough that developers can build native-quality mobile apps using open web technologies like HTML5, Javascript, and CSS. In this talk, we’ll provide background on why and how we created Ionic, the design decisions made as we integrated Ionic with Angular, and the performance considerations for mobile platforms that our team had to overcome. We’ll also review new and upcoming Ionic features, and talk about the hidden powers and benefits of combining mobile app development and Angular.",
@@ -28,6 +160,7 @@
         "timeEnd": "9:30 am",
         "tracks": ["Ionic"]
       }, {
+        "dateDay": "29",
         "name": "Getting started with Ionic",
         "location": "Room 2202",
         "description": "Mobile devices and browsers are now advanced enough that developers can build native-quality mobile apps using open web technologies like HTML5, Javascript, and CSS. In this talk, we’ll provide background on why and how we created Ionic, the design decisions made as we integrated Ionic with Angular, and the performance considerations for mobile platforms that our team had to overcome. We’ll also review new and upcoming Ionic features, and talk about the hidden powers and benefits of combining mobile app development and Angular.",
@@ -36,6 +169,7 @@
         "timeEnd": "9:45 am",
         "tracks": ["Ionic"]
       }, {
+        "dateDay": "28",
         "name": "Tooling for Ionic",
         "location": "Room 2201",
         "description": "Mobile devices and browsers are now advanced enough that developers can build native-quality mobile apps using open web technologies like HTML5, Javascript, and CSS. In this talk, we’ll provide background on why and how we created Ionic, the design decisions made as we integrated Ionic with Angular, and the performance considerations for mobile platforms that our team had to overcome. We’ll also review new and upcoming Ionic features, and talk about the hidden powers and benefits of combining mobile app development and Angular.",
@@ -45,7 +179,7 @@
         "tracks": ["Tooling"]
       }]
     }, {
-      "time": "10:00 am",
+      "dateYearMonth": "February, 2017",
       "sessions": [{
         "name": "Migrating to Ionic2",
         "location": "Room 2201",
@@ -80,7 +214,7 @@
         "tracks": ["Services"]
       }]
     }, {
-      "time": "11:00 am",
+      "dateYearMonth": "2017-01",
       "sessions": [{
         "name": "Ionic Workshop",
         "location": "Room 2201",
