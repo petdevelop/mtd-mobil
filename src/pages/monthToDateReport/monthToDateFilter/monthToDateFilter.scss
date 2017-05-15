@@ -5,7 +5,7 @@
 
 @each $track, $value in auxiliary-categories() {
 
-  ion-item[track=#{$track}] .dot {
+  ion-item .dot {
     height: 10px;
     display: inline-block;
     width: 10px;
