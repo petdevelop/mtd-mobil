@@ -20,6 +20,7 @@ import { SupportPage } from '../pages/support/support';
 import { ChartPage } from '../pages/chart/chart';
 import { MonthToDateCardPage } from '../pages/monthToDateReport/monthToDateCard/monthToDateCard';
 import { ReportsPage } from '../pages/reportsReport/reports/reports';
+import { ReportsFilterPage } from '../pages/reportsReport/reportsFilter/reportsFilter';
 
 import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
@@ -40,7 +41,8 @@ import { UserData } from '../providers/user-data';
     SupportPage,
     ChartPage,
     MonthToDateCardPage,
-    ReportsPage
+    ReportsPage,
+    ReportsFilterPage
   ],
   imports: [
     BrowserModule,
@@ -59,7 +61,8 @@ import { UserData } from '../providers/user-data';
         { component: SignupPage, name: 'SignupPage', segment: 'signup' },
         { component: ChartPage, name: 'ChartPage', segment: 'chart' },
         { component: MonthToDateCardPage, name: 'MonthToDateCardPage', segment: 'monthToDateCard' },
-        { component: ReportsPage, name: 'ReportsPage', segment: 'reports'}
+        { component: ReportsPage, name: 'ReportsPage', segment: 'reports'},
+        { component: ReportsFilterPage, name: 'ReportsFilterPage', segment: 'reportsFilter'}
       ]
     }),
     IonicStorageModule.forRoot()
@@ -78,7 +81,8 @@ import { UserData } from '../providers/user-data';
     TabsPage,
     SupportPage,
     ChartPage,
-    ReportsPage
+    ReportsPage,
+    ReportsFilterPage
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },

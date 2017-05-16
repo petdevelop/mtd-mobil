@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>Reports Filter</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+ 
+<ion-list>
+
+  <ion-item-divider></ion-item-divider>
+
+  <ion-item>
+    <ion-label>View by</ion-label>
+    <ion-select [(ngModel)]="viewBy">
+      <ion-option value="Filter-by-Merchant">Filter by Merchant</ion-option>
+      <ion-option selected value="View-All">View All</ion-option>
+      <ion-option value="View-In-House-AND-Subsidiaries">View In House AND Subsidiaries</ion-option>
+      <ion-option disabled>View In House OR Subsidiaries</ion-option>
+      <ion-option value="In-House">In House</ion-option>
+      <ion-option value="InstforHealth">InstforHealth</ion-option>
+      <ion-option value="Total-Body-Wellness">Total Body Wellness</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Filter by</ion-label>
+    <ion-select [(ngModel)]="filterBy">
+      <ion-option selected value="All">All</ion-option>
+      <ion-option value="3919719">3919719</ion-option>
+      <ion-option value="884130">884130</ion-option>
+      <ion-option value="AdTech">AdTech TransactPro Healthstore</ion-option>
+      <ion-option value="Amex-CB911">Amex CB911</ion-option>
+      <ion-option value="PP-BeautyHealthProd">PP BeautyHealthProd</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Sort by</ion-label>
+    <ion-select [(ngModel)]="sortBy">
+      <ion-option selected value="All">All</ion-option>
+      <ion-option value="3919719">3919719</ion-option>
+      <ion-option value="884130">884130</ion-option>
+      <ion-option value="AdTech">AdTech TransactPro Healthstore</ion-option>
+      <ion-option value="Amex-CB911">Amex CB911</ion-option>
+      <ion-option value="PP-BeautyHealthProd">PP BeautyHealthProd</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item-divider></ion-item-divider>
+
+  <ion-item>
+    <ion-label>Range by</ion-label>
+    <ion-select [(ngModel)]="rangeBy" interface="popover">
+      <ion-option selected value="Today">Today</ion-option>
+      <ion-option value="Yesterday">Yesterday</ion-option>
+      <ion-option value="Last-7-Days">Last 7 Days</ion-option>
+      <ion-option value="Last-30-Days">Last 30 Days</ion-option>
+      <ion-option value="This-Month">This Month</ion-option>
+      <ion-option value="Last-Month">Last Month</ion-option>
+      <ion-option value="Custom-Range">Custom Range</ion-option>
+    </ion-select>
+  </ion-item>
+
+
+  <div *ngIf="rangeBy == 'Custom-Range'">
+    <ion-item-divider></ion-item-divider>
+
+    <ion-item>
+      <ion-label>Start Date</ion-label>
+      <ion-datetime displayFormat="MMM DD, YYYY" [(ngModel)]="startDate" (ionChange)="changeStartDate()"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>End Date</ion-label>
+      <ion-datetime displayFormat="MMM DD, YYYY" [(ngModel)]="endDate" [min]="startDate | date:'yyyy-MM-dd'"></ion-datetime>
+    </ion-item>
+  </div>
+
+  <ion-item-divider></ion-item-divider>
+  
+  <button ion-item detail-none class="reset-filters">
+    Submit
+  </button>
+
+</ion-list>
+
+
+ 
+</ion-content>
