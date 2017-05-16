@@ -12,6 +12,7 @@ import { MonthToDatePage } from '../pages/monthToDateReport/monthToDate/monthToD
 import { MidHealthPage } from '../pages/midHealth/midHealth';
 import { SupportPage } from '../pages/support/support';
 import { ChartPage } from '../pages/chart/chart';
+import { ReportsPage } from '../pages/reportsReport/reports/reports';
 
 import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
@@ -42,10 +43,11 @@ export class ConferenceApp {
   // the left menu only works after login
   // the login page disables the left menu
   appPages: PageInterface[] = [
-    { title: 'Month-to-Date', name: 'TabsPage', component: TabsPage, tabComponent: MonthToDatePage, index: 0, icon: 'calendar' },
-    { title: 'MID Health', name: 'TabsPage', component: TabsPage, tabComponent: MidHealthPage, index: 1, icon: 'contacts' },
-    { title: 'Resultant KPI', name: 'TabsPage', component: TabsPage, tabComponent: ResultantKpiPage, index: 2, icon: 'alarm' },
-    { title: 'MAC Reports', name: 'TabsPage', component: TabsPage, tabComponent: ChartPage, index: 3, icon: 'analytics' }
+    { title: 'Reports', name: 'TabsPage', component: TabsPage, tabComponent: ReportsPage, index: 0, icon: 'flash' },
+    { title: 'Month-to-Date', name: 'TabsPage', component: TabsPage, tabComponent: MonthToDatePage, index: 1, icon: 'calendar' },
+    { title: 'MID Health', name: 'TabsPage', component: TabsPage, tabComponent: MidHealthPage, index: 2, icon: 'contacts' },
+    { title: 'Resultant KPI', name: 'TabsPage', component: TabsPage, tabComponent: ResultantKpiPage, index: 3, icon: 'alarm' },
+    { title: 'MAC Reports', name: 'TabsPage', component: TabsPage, tabComponent: ChartPage, index: 4, icon: 'analytics' }
   ];
   loggedInPages: PageInterface[] = [
     { title: 'Account', name: 'AccountPage', component: AccountPage, icon: 'person' },
