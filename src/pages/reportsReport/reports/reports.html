@@ -1,8 +1,16 @@
 <ion-header>
-  <ion-navbar color="danger">
+  <ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
+
+    <ion-title>Reports</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="openFilter()">
+        <ion-icon ios="ios-options-outline" md="md-options"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
  

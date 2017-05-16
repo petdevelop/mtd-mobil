@@ -1,6 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ModalController } from 'ionic-angular';
 import { Chart } from 'chart.js';
+
+import { ReportsFilterPage } from '../reportsFilter/reportsFilter';
  
 @Component({
   selector: 'page-reports',
@@ -16,7 +18,7 @@ export class ReportsPage {
     doughnutChart: any;
     lineChart: any;
  
-    constructor(public navCtrl: NavController) {
+    constructor(public navCtrl: NavController, public modalCtrl: ModalController) {
  
     }
  
@@ -123,6 +125,18 @@ export class ReportsPage {
  
         });
  
+    }
+
+    openFilter(): any {
+        let modal = this.modalCtrl.create(ReportsFilterPage/*, this.excludeTracks*/);
+        modal.present();
+
+        modal.onWillDismiss((data: any[]) => {
+        if (data) {
+            /*this.excludeTracks = data;
+            this.updateMonthToDate();*/
+        }
+        });
     }
  
  

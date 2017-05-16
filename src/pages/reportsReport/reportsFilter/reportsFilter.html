@@ -1,11 +1,17 @@
 <ion-header>
-  <ion-navbar color="danger">
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">Cancel</button>
+    </ion-buttons>
 
-    <ion-title>Reports Filter</ion-title>
-  </ion-navbar>
+    <ion-title>
+      Filter Sessions
+    </ion-title>
+
+    <ion-buttons end>
+      <button ion-button (click)="applyFilters()" strong>Done</button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
@@ -16,9 +22,9 @@
 
   <ion-item>
     <ion-label>View by</ion-label>
-    <ion-select [(ngModel)]="viewBy">
+    <ion-select [(ngModel)]="filterData.viewBy">
       <ion-option value="Filter-by-Merchant">Filter by Merchant</ion-option>
-      <ion-option selected value="View-All">View All</ion-option>
+      <ion-option value="View-All">View All</ion-option>
       <ion-option value="View-In-House-AND-Subsidiaries">View In House AND Subsidiaries</ion-option>
       <ion-option disabled>View In House OR Subsidiaries</ion-option>
       <ion-option value="In-House">In House</ion-option>
@@ -29,8 +35,8 @@
 
   <ion-item>
     <ion-label>Filter by</ion-label>
-    <ion-select [(ngModel)]="filterBy">
-      <ion-option selected value="All">All</ion-option>
+    <ion-select [(ngModel)]="filterData.filterBy">
+      <ion-option value="All">All</ion-option>
       <ion-option value="3919719">3919719</ion-option>
       <ion-option value="884130">884130</ion-option>
       <ion-option value="AdTech">AdTech TransactPro Healthstore</ion-option>
@@ -41,8 +47,8 @@
 
   <ion-item>
     <ion-label>Sort by</ion-label>
-    <ion-select [(ngModel)]="sortBy">
-      <ion-option selected value="All">All</ion-option>
+    <ion-select [(ngModel)]="filterData.sortBy">
+      <ion-option value="All">All</ion-option>
       <ion-option value="3919719">3919719</ion-option>
       <ion-option value="884130">884130</ion-option>
       <ion-option value="AdTech">AdTech TransactPro Healthstore</ion-option>
@@ -55,8 +61,8 @@
 
   <ion-item>
     <ion-label>Range by</ion-label>
-    <ion-select [(ngModel)]="rangeBy" interface="popover">
-      <ion-option selected value="Today">Today</ion-option>
+    <ion-select [(ngModel)]="filterData.rangeBy" interface="popover">
+      <ion-option value="Today">Today</ion-option>
       <ion-option value="Yesterday">Yesterday</ion-option>
       <ion-option value="Last-7-Days">Last 7 Days</ion-option>
       <ion-option value="Last-30-Days">Last 30 Days</ion-option>
@@ -67,25 +73,19 @@
   </ion-item>
 
 
-  <div *ngIf="rangeBy == 'Custom-Range'">
+  <div *ngIf="filterData.rangeBy == 'Custom-Range'">
     <ion-item-divider></ion-item-divider>
 
     <ion-item>
       <ion-label>Start Date</ion-label>
-      <ion-datetime displayFormat="MMM DD, YYYY" [(ngModel)]="startDate" (ionChange)="changeStartDate()"></ion-datetime>
+      <ion-datetime displayFormat="MMM DD, YYYY" [(ngModel)]="filterData.startDate" (ionChange)="changeStartDate()"></ion-datetime>
     </ion-item>
 
     <ion-item>
       <ion-label>End Date</ion-label>
-      <ion-datetime displayFormat="MMM DD, YYYY" [(ngModel)]="endDate" [min]="startDate | date:'yyyy-MM-dd'"></ion-datetime>
+      <ion-datetime displayFormat="MMM DD, YYYY" [(ngModel)]="filterData.endDate" [min]="filterData.startDate | date:'yyyy-MM-dd'"></ion-datetime>
     </ion-item>
   </div>
-
-  <ion-item-divider></ion-item-divider>
-  
-  <button ion-item detail-none class="reset-filters">
-    Submit
-  </button>
 
 </ion-list>
 
