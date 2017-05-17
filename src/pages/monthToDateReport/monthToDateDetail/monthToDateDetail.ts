@@ -12,7 +12,8 @@ import { MonthToDatePage } from '../monthToDate/monthToDate';
 })
 
 export class MonthToDateDetailPage {
-  params: any = {};
+  domestic: any = [];
+  offshore: any = [];
   location: string = '';
   dayIndex = 0;
   queryText = '';
@@ -38,7 +39,8 @@ export class MonthToDateDetailPage {
      this.confData.getTimeline(this.dayIndex, this.queryText, this.excludeTracks, this.segment).subscribe((data: any) => {
       this.groups = data.groups;
       // today
-      this.params = this.groups[0].sessions[0];
+      this.domestic = this.groups[0].sessions[0].segments.domestic;
+      this.offshore = this.groups[0].sessions[0].segments.offshore;
     });
   }
 

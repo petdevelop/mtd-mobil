@@ -24,9 +24,9 @@ export class MidHealthPage {
   ) { }
 
   ionViewDidLoad() {
-    this.confData.getSpeakers().subscribe((speakers: any[]) => {
-      this.speakers = speakers;
-    });
+    // this.confData.getSpeakers().subscribe((speakers: any[]) => {
+    //   this.speakers = speakers;
+    // });
   }
 
   goToMonthToDateDetail(session: any) {
