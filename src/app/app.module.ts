@@ -51,7 +51,7 @@ import { UserData } from '../providers/user-data';
       links: [
         { component: TabsPage, name: 'TabsPage', segment: 'tabs' },
         { component: MonthToDatePage, name: 'MonthToDate', segment: 'monthToDate' },
-        { component: MonthToDateDetailPage, name: 'MonthToDateDetail', segment: 'sessionDetail/:name' },
+        { component: MonthToDateDetailPage, name: 'MonthToDateDetail', segment: 'monthToDateDetailDetail/:name' },
         { component: MonthToDateFilterPage, name: 'MonthToDateFilter', segment: 'monthToDateFilter' },
         { component: MidHealthPage, name: 'MidHealth', segment: 'midHealth' },
         { component: ResultantKpiPage, name: 'ResultantKpi', segment: 'resultantKpi' },

@@ -5,9 +5,14 @@
     </button>
 
     <ion-title>April, 29 2017</ion-title>
-
+    
+    <ion-buttons end>
+      <button ion-button icon-only (click)="presentFilter()">
+        <ion-icon ios="ios-options-outline" md="md-options"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
-      <ion-toolbar no-border-top>
+  <ion-toolbar no-border-top>
     
       <ion-segment [(ngModel)]="location">
         <ion-segment-button value="domestic">
@@ -24,7 +29,7 @@
 
 <ion-content>
 
-    <ion-list>
+    <ion-list *ngIf="params.segments">
         <ion-slides [hidden]="location == 'offshore'" #slides pager>
           <page-month-to-date-card [data]="params.segments.domestic[0]"></page-month-to-date-card>
           <page-month-to-date-card [data]="params.segments.domestic[1]"></page-month-to-date-card>

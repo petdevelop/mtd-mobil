@@ -4,12 +4,10 @@
       <ion-icon name="menu"></ion-icon>
     </button>
 
-    <ion-title>Month-to-Date</ion-title>
+    <ion-title>Month to Date Filter</ion-title>
 
     <ion-buttons end>
-      <button ion-button icon-only (click)="presentFilter()">
-        <ion-icon ios="ios-options-outline" md="md-options"></ion-icon>
-      </button>
+      <button ion-button (click)="applyFilters()" strong>Done</button>
     </ion-buttons>
   </ion-navbar>
 
@@ -39,7 +37,7 @@
 
       <ion-item-sliding *ngFor="let session of group.sessions" #slidingItem [attr.track]="session.tracks[0] | lowercase" [hidden]="session.hide">
 
-        <button ion-item (click)="goToMonthToDateDetail(session)">
+        <button ion-item (click)="applyFilters(session)">
           <h3>Day {{session.dateDay}}</h3>
           <p>
             No data available in table

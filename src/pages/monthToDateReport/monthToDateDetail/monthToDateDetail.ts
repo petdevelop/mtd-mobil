@@ -1,7 +1,9 @@
-import { Component, ViewChild } from '@angular/core';
-import { Slides, NavParams } from 'ionic-angular';
+import { Component } from '@angular/core';
+import { ModalController } from 'ionic-angular';
 
+import { ConferenceData } from '../../../providers/conference-data';
 import { MonthToDateCardPage } from '../monthToDateCard/monthToDateCard';
+import { MonthToDatePage } from '../monthToDate/monthToDate';
 
 @Component({
   selector: 'page-monthToDateDetail',
@@ -10,17 +12,47 @@ import { MonthToDateCardPage } from '../monthToDateCard/monthToDateCard';
 })
 
 export class MonthToDateDetailPage {
-  params: any;
+  params: any = {};
   location: string = '';
+  dayIndex = 0;
+  queryText = '';
+  segment = 'all';
+  excludeTracks: any = [];
+  groups: any = [];
+  confDate: string;
 
-  @ViewChild('slides') slides: Slides;
-
-  constructor(public navParams: NavParams) {
-    this.params = navParams.data.session;
+  constructor(
+      public confData: ConferenceData,
+      public modalCtrl: ModalController) {
   }
 
-  ionViewWillEnter() {
+  ionViewDidLoad() {
+    this.updateMonthToDate();
+  }
+
+  ionViewDidEnter() {
     this.location = 'domestic';
+  }
+
+  updateMonthToDate() {
+     this.confData.getTimeline(this.dayIndex, this.queryText, this.excludeTracks, this.segment).subscribe((data: any) => {
+      this.groups = data.groups;
+      // today
+      this.params = this.groups[0].sessions[0];
+    });
+  }
+
+  presentFilter() {
+    let modal = this.modalCtrl.create(MonthToDatePage/*, this.excludeTracks*/);
+    modal.present();
+
+    modal.onWillDismiss((data: any[]) => {
+      if (data) {
+        this.excludeTracks = data;
+        this.updateMonthToDate();
+      }
+    });
+
   }
 
 }

@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 
-import { AlertController, App, FabContainer, ItemSliding, List, ModalController, NavController, ToastController, LoadingController, Refresher } from 'ionic-angular';
+import { AlertController, App, FabContainer, ItemSliding, List, NavController, ToastController, LoadingController, Refresher, ViewController } from 'ionic-angular';
 
 /*
   To learn how to use third party libs in an
@@ -10,10 +10,6 @@ import { AlertController, App, FabContainer, ItemSliding, List, ModalController,
 
 import { ConferenceData } from '../../../providers/conference-data';
 import { UserData } from '../../../providers/user-data';
-
-import { MonthToDateDetailPage } from '../monthToDateDetail/monthToDateDetail';
-import { MonthToDateFilterPage } from '../monthToDateFilter/monthToDateFilter';
-
 
 @Component({
   selector: 'page-monthToDate',
@@ -37,12 +33,12 @@ export class MonthToDatePage {
   constructor(
     public alertCtrl: AlertController,
     public app: App,
-    public loadingCtrl: LoadingController,
-    public modalCtrl: ModalController,
+    public loadingCtrl: LoadingController,    
     public navCtrl: NavController,
     public toastCtrl: ToastController,
     public confData: ConferenceData,
     public user: UserData,
+    public viewCtrl: ViewController
   ) {}
 
   ionViewDidLoad() {
@@ -57,28 +53,6 @@ export class MonthToDatePage {
     this.confData.getTimeline(this.dayIndex, this.queryText, this.excludeTracks, this.segment).subscribe((data: any) => {
       this.shownSessions = data.shownSessions;
       this.groups = data.groups;
-    });
-  }
-
-  presentFilter() {
-    let modal = this.modalCtrl.create(MonthToDateFilterPage, this.excludeTracks);
-    modal.present();
-
-    modal.onWillDismiss((data: any[]) => {
-      if (data) {
-        this.excludeTracks = data;
-        this.updateMonthToDate();
-      }
-    });
-
-  }
-
-  goToMonthToDateDetail(sessionData: any) {
-    // go to the session detail page
-    // and pass in the session data
-    this.navCtrl.push(MonthToDateDetailPage, {
-      name: sessionData.name,
-      session: sessionData
     });
   }
 
@@ -167,5 +141,17 @@ export class MonthToDatePage {
         toast.present();
       }, 1000);
     });
+  }
+
+  applyFilters(session?: any) {
+    // Pass back a new array of track names to exclude
+    // let excludedTrackNames = this.tracks.filter(c => !c.isChecked).map(c => c.name);
+    this.dismiss();
+  }
+
+  dismiss(data?: any) {
+    // using the injected ViewController this page
+    // can "dismiss" itself and pass back data
+    this.viewCtrl.dismiss(data);
   }
 }

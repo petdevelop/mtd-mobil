@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { NavParams } from 'ionic-angular';
 
 import { ResultantKpiPage } from '../resultantKpi/resultantKpi';
-import { MonthToDatePage } from '../monthToDateReport/monthToDate/monthToDate';
+import { MonthToDateDetailPage } from '../monthToDateReport/monthToDateDetail/monthToDateDetail';
 import { MidHealthPage } from '../midHealth/midHealth';
 import { ChartPage } from '../chart/chart';
 import { ReportsPage } from '../reportsReport/reports/reports';
@@ -14,7 +14,7 @@ import { ReportsPage } from '../reportsReport/reports/reports';
 export class TabsPage {
   // set the root pages for each tab
   tab0Root: any = ReportsPage;
-  tab1Root: any = MonthToDatePage;
+  tab1Root: any = MonthToDateDetailPage;
   tab2Root: any = MidHealthPage;
   tab3Root: any = ResultantKpiPage;
   tab4Root: any = ChartPage;
