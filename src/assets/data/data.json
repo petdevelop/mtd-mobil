@@ -2,10 +2,11 @@
 
   "monthToDate": [{
     "groups": [{
-      "dateYearMonth": "April, 2017",
+      "month": "April",
+      "year": "2017",
       "sessions": [{
-        "dateDay": "30",
-        "tracks": ["Food"],
+        "day": "30",
+        "tracks": ["Chargebacks"],
         "segments": {
           "domestic" :   [{  
              "title": "MID",
@@ -113,15 +114,15 @@
           ]
         }
       }, {
-        "dateDay": "29",
-        "tracks": ["Food"],
+        "day": "29",
+        "tracks": ["Alerts"],
         "segments": {
           "domestic" :   [{  
              "title": "MID",
              "columns": ["Gateway ID", "MID", "MID Alias"],
              "rows": [
-                ["3", "1093281400", "Amex CB911"],
-                ["6", "0153040004553",	"Evo Inhouse"],
+                ["3", "erer32810", "Amex CB911"],
+                ["6", "eerer04003",	"Evo Inhouse"],
                 ["7",	"941000128117",	"APS InHouse"],
                 ["8",	"21000128112",	"Visa InHouse"]
               ]}, {   
@@ -222,8 +223,8 @@
           ]
         }
       }, {
-        "dateDay": "28",
-        "tracks": ["Food"],
+        "day": "28",
+        "tracks": ["Alerts"],
         "segments": {
           "domestic" :   [{  
              "title": "MID",

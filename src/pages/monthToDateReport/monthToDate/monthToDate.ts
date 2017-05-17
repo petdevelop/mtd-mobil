@@ -1,15 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
-
-import { AlertController, App, FabContainer, ItemSliding, List, NavController, ToastController, LoadingController, Refresher, ViewController } from 'ionic-angular';
-
-/*
-  To learn how to use third party libs in an
-  Ionic app check out our docs here: http://ionicframework.com/docs/v2/resources/third-party-libs/
-*/
-// import moment from 'moment';
+import { AlertController, App, FabContainer, ItemSliding, List, ToastController, LoadingController, Refresher, ViewController, ModalController } from 'ionic-angular';
 
 import { ConferenceData } from '../../../providers/conference-data';
 import { UserData } from '../../../providers/user-data';
+import { MonthToDateFilterPage } from '../monthToDateFilter/monthToDateFilter';
+
 
 @Component({
   selector: 'page-monthToDate',
@@ -29,16 +24,17 @@ export class MonthToDatePage {
   shownSessions: any = [];
   groups: any = [];
   confDate: string;
+  selectedDate: string;
 
   constructor(
     public alertCtrl: AlertController,
     public app: App,
     public loadingCtrl: LoadingController,    
-    public navCtrl: NavController,
     public toastCtrl: ToastController,
     public confData: ConferenceData,
     public user: UserData,
-    public viewCtrl: ViewController
+    public viewCtrl: ViewController,
+    public modalCtrl: ModalController
   ) {}
 
   ionViewDidLoad() {
@@ -143,15 +139,30 @@ export class MonthToDatePage {
     });
   }
 
-  applyFilters(session?: any) {
-    // Pass back a new array of track names to exclude
-    // let excludedTrackNames = this.tracks.filter(c => !c.isChecked).map(c => c.name);
-    this.dismiss();
+  applyFilters(month?: number, year?: number, session?: any) {
+    session.month = month;
+    session.year = year; 
+    this.dismiss(session);
   }
 
-  dismiss(data?: any) {
+  dismiss(session?: any) {
     // using the injected ViewController this page
     // can "dismiss" itself and pass back data
-    this.viewCtrl.dismiss(data);
+    this.viewCtrl.dismiss(session);
+  }
+
+  selectDate(): void {
+    // pass some info to parent
+    this.dismiss();   
+  }
+
+  presentAlarm(): void {
+    let modal = this.modalCtrl.create(MonthToDateFilterPage);
+    modal.present();
+
+    modal.onWillDismiss((session?: any) => {
+      if (session) {
+      }
+    });
   }
 }

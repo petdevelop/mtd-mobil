@@ -42,17 +42,19 @@ export class MonthToDateDetailPage {
       // today
       this.domestic = this.groups[0].sessions[0].segments.domestic;
       this.offshore = this.groups[0].sessions[0].segments.offshore;
+      this.date     = this.groups[0].month + " " + this.groups[0].sessions[0].day + ", " + this.groups[0].year;
     });
   }
 
   presentFilter() {
-    let modal = this.modalCtrl.create(MonthToDatePage/*, this.excludeTracks*/);
+    let modal = this.modalCtrl.create(MonthToDatePage);
     modal.present();
 
-    modal.onWillDismiss((data: any[]) => {
-      if (data) {
-        this.excludeTracks = data;
-        this.updateMonthToDate();
+    modal.onWillDismiss((session?: any) => {
+      if (session) {
+        this.domestic = session.segments.domestic;
+        this.offshore = session.segments.offshore;
+        this.date     = session.month + " " + session.day + ", " + session.year;
       }
     });
 
