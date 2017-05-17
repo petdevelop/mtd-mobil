@@ -331,6 +331,7 @@
           ]
         }
       }]
+    }]
   }],
 
 
@@ -390,54 +391,6 @@
     "location": "Everywhere",
     "email": "isabella@example.com",
     "phone": "+1-541-754-3010"
-  }, {
-    "name": "Karl Kitten",
-    "profilePic": "assets/img/speakers/kitten.jpg",
-    "twitter": "ionicframework",
-    "resultantKpi": "Karl is a Kitten.",
-    "location": "Everywhere",
-    "email": "karl@example.com",
-    "phone": "+1-541-754-3010"
-  }, {
-    "name": "Lionel Lion",
-    "profilePic": "assets/img/speakers/lion.jpg",
-    "twitter": "ionicframework",
-    "resultantKpi": "Lionel is a Lion.",
-    "location": "Everywhere",
-    "email": "lionel@example.com",
-    "phone": "+1-541-754-3010"
-  }, {
-    "name": "Molly Mouse",
-    "profilePic": "assets/img/speakers/mouse.jpg",
-    "twitter": "ionicframework",
-    "resultantKpi": "Molly is a Mouse.",
-    "location": "Everywhere",
-    "email": "molly@example.com",
-    "phone": "+1-541-754-3010"
-  }, {
-    "name": "Paul Puppy",
-    "profilePic": "assets/img/speakers/puppy.jpg",
-    "twitter": "ionicframework",
-    "resultantKpi": "Paul is a Puppy.",
-    "location": "Everywhere",
-    "email": "paul@example.com",
-    "phone": "+1-541-754-3010"
-  }, {
-    "name": "Rachel Rabbit",
-    "profilePic": "assets/img/speakers/rabbit.jpg",
-    "twitter": "ionicframework",
-    "resultantKpi": "Rachel is a Rabbit.",
-    "location": "Everywhere",
-    "email": "rachel@example.com",
-    "phone": "+1-541-754-3010"
-  }, {
-    "name": "Ted Turtle",
-    "profilePic": "assets/img/speakers/turtle.jpg",
-    "twitter": "ionicframework",
-    "resultantKpi": "Ted is a Turtle.",
-    "location": "Everywhere",
-    "email": "ted@example.com",
-    "phone": "+1-541-754-3010"
   }]
 
-}]}
+}

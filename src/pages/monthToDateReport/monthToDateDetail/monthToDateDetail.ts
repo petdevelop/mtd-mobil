@@ -14,6 +14,7 @@ import { MonthToDatePage } from '../monthToDate/monthToDate';
 export class MonthToDateDetailPage {
   domestic: any = [];
   offshore: any = [];
+  date: string;
   location: string = '';
   dayIndex = 0;
   queryText = '';
