@@ -10,6 +10,8 @@ import { ConferenceData } from '../../../providers/conference-data';
 })
 export class MonthToDateFilterPage {
   tracks: Array<{name: string, isChecked: boolean}> = [];
+  chargebacksRange: number = 0;
+  alertsRange: number = 0;
 
   constructor(
     public confData: ConferenceData,
