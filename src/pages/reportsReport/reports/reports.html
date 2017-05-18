@@ -18,29 +18,94 @@
  
     <ion-card>
       <ion-card-header>
-        Bar Chart
+        % of Chargebacks by Transaction Month
       </ion-card-header>
       <ion-card-content>
-        <canvas #barCanvas></canvas>
+        <canvas #chargebacksByTransactionMonth></canvas>
       </ion-card-content>
     </ion-card>
- 
+
     <ion-card>
       <ion-card-header>
-        Doughnut Chart
+        % of Chargebacks by Transaction Amount
       </ion-card-header>
       <ion-card-content>
-        <canvas #doughnutCanvas></canvas>
+        <canvas #chargebacksByTransactionAmount></canvas>
       </ion-card-content>
     </ion-card>
- 
+
     <ion-card>
       <ion-card-header>
-        Line Chart
+        CTR by Transaction Date Week
       </ion-card-header>
       <ion-card-content>
-        <canvas #lineCanvas></canvas>
+        <canvas #chargebacksRatioByTransactionDateWeek></canvas>
+      </ion-card-content>
+    </ion-card>    
+
+    <ion-card>
+      <ion-card-header>
+        Average Span Between Chargeback
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #averageSpanBetweenChargeback></canvas>
+      </ion-card-content>
+    </ion-card> 
+
+    <ion-card>
+      <ion-card-header>
+        Card Type
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #cardType></canvas>
       </ion-card-content>
     </ion-card>
- 
+
+    <ion-card>
+      <ion-card-header>
+        Customer Type
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #customerType></canvas>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        Domestic vs. Offshore
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #domesticVsOffshore></canvas>
+      </ion-card-content>
+    </ion-card>
+
+
+
+    <ion-card>
+      <ion-card-header>
+        % by Card Type Per Processor (Top 5)
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #byCardTypePerProcessor></canvas>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        % by Processor (Top 5)
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #byProcessor></canvas>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        % by BIN (Top 5)
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #byBIN></canvas>
+      </ion-card-content>
+    </ion-card>            
+     
 </ion-content>

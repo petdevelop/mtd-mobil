@@ -22,22 +22,22 @@
 
     <ion-item-divider>
       <ion-label>Chargebacks</ion-label>
-      <ion-badge item-right color="danger">{{chargebacksRange}}</ion-badge>
+      <ion-badge item-right color="danger" [hidden]="!chargebacksIsChecked">{{chargebacksRange}}</ion-badge>
       <ion-toggle [(ngModel)]="chargebacksIsChecked" color="danger"></ion-toggle>
     </ion-item-divider>
 
     <ion-item>
-        <ion-range min="1" max="10000" color="danger" [(ngModel)]="chargebacksRange" [disabled]="!chargebacksIsChecked"></ion-range>        
+        <ion-range min="50" step="50" max="5000" color="danger" [(ngModel)]="chargebacksRange" [disabled]="!chargebacksIsChecked"></ion-range>        
     </ion-item>
 
     <ion-item-divider>
       <ion-label>Alerts</ion-label>
-      <ion-badge item-right color="danger">{{alertsRange}}</ion-badge>
+      <ion-badge item-right color="danger" [hidden]="!alertsIsChecked">{{alertsRange}}</ion-badge>
       <ion-toggle [(ngModel)]="alertsIsChecked" color="danger"></ion-toggle>
     </ion-item-divider>
 
     <ion-item>
-        <ion-range min="1" max="10000" color="danger" [(ngModel)]="alertsRange" [disabled]="!alertsIsChecked"></ion-range>        
+        <ion-range min="50" step="50" max="5000" color="danger" [(ngModel)]="alertsRange" [disabled]="!alertsIsChecked"></ion-range>        
     </ion-item>    
 
   </ion-list>

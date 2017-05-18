@@ -29,14 +29,22 @@
 
 <ion-content>
 
-    <ion-list>
-        <ion-slides [hidden]="location == 'offshore'" pager>
-          <page-month-to-date-card *ngFor="let segment of domestic" [data]="segment"></page-month-to-date-card>
-        </ion-slides>
-        
-        <ion-slides [hidden]="location == 'domestic'" pager>
-          <page-month-to-date-card *ngFor="let segment of offshore" [data]="segment"></page-month-to-date-card>
-        </ion-slides>
-    </ion-list>
+  <ion-list>
+      <ion-slides [hidden]="location == 'offshore'" pager>
+        <page-month-to-date-card *ngFor="let segment of domestic" [data]="segment"></page-month-to-date-card>
+      </ion-slides>
+      
+      <ion-slides [hidden]="location == 'domestic'" pager>
+        <page-month-to-date-card *ngFor="let segment of offshore" [data]="segment"></page-month-to-date-card>
+      </ion-slides>
+  </ion-list>
+
+  <ion-fab bottom right #fab>
+    <button ion-fab color="danger"><ion-icon name="share"></ion-icon></button>
+    <ion-fab-list side="top">
+      <button ion-fab color="danger" (click)="presentAlarm(fab)"><ion-icon name="md-alarm"></ion-icon></button>
+      <button ion-fab color="danger"><ion-icon name="share-alt"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>    
 
 </ion-content>

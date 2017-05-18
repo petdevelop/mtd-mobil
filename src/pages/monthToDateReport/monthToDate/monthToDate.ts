@@ -3,7 +3,6 @@ import { AlertController, App, FabContainer, ItemSliding, List, ToastController,
 
 import { ConferenceData } from '../../../providers/conference-data';
 import { UserData } from '../../../providers/user-data';
-import { MonthToDateFilterPage } from '../monthToDateFilter/monthToDateFilter';
 
 
 @Component({
@@ -15,7 +14,8 @@ export class MonthToDatePage {
   // @ViewChild('monthToDateList') gets a reference to the list
   // with the variable #monthToDateList, `read: List` tells it to return
   // the List and not a reference to the element
-  @ViewChild('monthToDateList', { read: List }) monthToDateList: List;
+  @ViewChild('monthToDateList', { read: List }) 
+  monthToDateList: List;
 
   dayIndex = 0;
   queryText = '';
@@ -156,13 +156,5 @@ export class MonthToDatePage {
     this.dismiss();   
   }
 
-  presentAlarm(): void {
-    let modal = this.modalCtrl.create(MonthToDateFilterPage);
-    modal.present();
 
-    modal.onWillDismiss((session?: any) => {
-      if (session) {
-      }
-    });
-  }
 }

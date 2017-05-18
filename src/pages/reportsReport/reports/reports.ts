@@ -10,43 +10,47 @@ import { ReportsFilterPage } from '../reportsFilter/reportsFilter';
 })
 export class ReportsPage {
  
-    @ViewChild('barCanvas') barCanvas : any;
-    @ViewChild('doughnutCanvas') doughnutCanvas : any;
-    @ViewChild('lineCanvas') lineCanvas : any;
- 
-    barChart: any;
-    doughnutChart: any;
-    lineChart: any;
- 
+    @ViewChild('chargebacksByTransactionMonth') chargebacksByTransactionMonth : any;
+    @ViewChild('chargebacksByTransactionAmount') chargebacksByTransactionAmount : any;
+    @ViewChild('chargebacksRatioByTransactionDateWeek') chargebacksRatioByTransactionDateWeek : any;
+    @ViewChild('averageSpanBetweenChargeback') averageSpanBetweenChargeback : any;
+    @ViewChild('cardType') cardType : any;
+    @ViewChild('customerType') customerType : any;
+    @ViewChild('domesticVsOffshore') domesticVsOffshore : any;
+    @ViewChild('byCardTypePerProcessor') byCardTypePerProcessor : any;
+    @ViewChild('byProcessor') byProcessor : any;
+    @ViewChild('byBIN') byBIN : any;
+
+    chargebacksByTransactionMonthChart: any;
+    chargebacksByTransactionAmountChart: any;
+    chargebacksRatioByTransactionDateWeekChart: any;
+    averageSpanBetweenChargebackChart: any;
+    cardTypeChart: any;
+    customerTypeChart: any;
+    domesticVsOffshoreChart: any;
+    byCardTypePerProcessorChart: any;
+    byProcessorChart: any;
+    byBINChart: any;
+
     constructor(public navCtrl: NavController, public modalCtrl: ModalController) {
  
     }
  
     ionViewDidLoad() {
  
-        this.barChart = new Chart(this.barCanvas.nativeElement, {
+        this.chargebacksByTransactionMonthChart = new Chart(this.chargebacksByTransactionMonth.nativeElement, {
  
             type: 'bar',
             data: {
-                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                labels: ["Feb 2017"],
                 datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 5, 2, 3],
+                    label: '%',
+                    data: [66],
                     backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
+                        'rgba(255, 99, 132, 0.2)'
                     ],
                     borderColor: [
-                        'rgba(255,99,132,1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
+                        'rgba(255,99,132,1)'
                     ],
                     borderWidth: 1
                 }]
@@ -55,51 +59,104 @@ export class ReportsPage {
                 scales: {
                     yAxes: [{
                         ticks: {
-                            beginAtZero:true
+                            min: 0,
+                            max: 100,
+                            callback: function(value: any) {
+                                return value + "%"
+                            }
                         }
                     }]
                 }
             }
  
         });
+
+        this.chargebacksByTransactionAmountChart = new Chart(this.chargebacksByTransactionAmount.nativeElement, {
  
-        this.doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {
- 
-            type: 'doughnut',
+            type: 'bar',
             data: {
-                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                labels: ["<$3879", "<$4274", "<$4669", "<$5064", "<$5455"],
                 datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 5, 2, 3],
+                    label: '%',
+                    data: [72, 0, 0, 0, 33.3],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
                         'rgba(255, 206, 86, 0.2)',
                         'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
+                        'rgba(153, 102, 255, 0.2)'
                     ],
-                    hoverBackgroundColor: [
-                        "#FF6384",
-                        "#36A2EB",
-                        "#FFCE56",
-                        "#FF6384",
-                        "#36A2EB",
-                        "#FFCE56"
-                    ]
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)'
+                    ],
+                    borderWidth: 1
                 }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            min: 0,
+                            max: 100,
+                            callback: function(value: any) {
+                                return value + "%"
+                            }
+                        }
+                    }],
+                    xAxes: [{
+                        // type: 'linear',
+                        position: 'bottom'
+                    }]                    
+                }
             }
  
         });
  
-        this.lineChart = new Chart(this.lineCanvas.nativeElement, {
+        this.chargebacksRatioByTransactionDateWeekChart = new Chart(this.chargebacksRatioByTransactionDateWeek.nativeElement, {
+ 
+            type: 'bar',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: '%',
+                    data: [],
+                    backgroundColor: [
+                        
+                    ],
+                    borderColor: [
+                        
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            min: 0,
+                            max: 100,
+                            callback: function(value: any) {
+                                return value + "%"
+                            }
+                        }
+                    }]
+                }
+            }
+ 
+        });
+
+        this.averageSpanBetweenChargebackChart = new Chart(this.averageSpanBetweenChargeback.nativeElement, {
  
             type: 'line',
             data: {
-                labels: ["January", "February", "March", "April", "May", "June", "July"],
+                labels: ["Week 11", "Week 12", "Week 14"],
                 datasets: [
                     {
-                        label: "My First dataset",
+                        label: "Days",
                         fill: false,
                         lineTension: 0.1,
                         backgroundColor: "rgba(75,192,192,0.4)",
@@ -117,14 +174,180 @@ export class ReportsPage {
                         pointHoverBorderWidth: 2,
                         pointRadius: 1,
                         pointHitRadius: 10,
-                        data: [65, 59, 80, 81, 56, 55, 40],
+                        data: [42, 43, 54],
                         spanGaps: false,
                     }
                 ]
             }
  
         });
+
+        this.cardTypeChart = new Chart(this.cardType.nativeElement, {
  
+            type: 'doughnut',
+            data: {
+                labels: ["Amex"],
+                datasets: [{
+                    label: '%',
+                    data: [100],
+                    backgroundColor: [
+                        'rgba(255, 206, 86, 0.2)'
+                    ],
+                    hoverBackgroundColor: [
+                        "rgba(255, 206, 86, 0.9)"
+                    ]
+                }]
+            }
+ 
+        });
+
+        this.customerTypeChart = new Chart(this.customerType.nativeElement, {
+ 
+            type: 'doughnut',
+            data: {
+                labels: ["Initial"],
+                datasets: [{
+                    label: '%',
+                    data: [100],
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.2)'
+                    ],
+                    hoverBackgroundColor: [
+                        "rgba(75, 192, 192, 0.9)"
+                    ]
+                }]
+            }
+ 
+        });
+
+        this.domesticVsOffshoreChart = new Chart(this.domesticVsOffshore.nativeElement, {
+ 
+            type: 'doughnut',
+            data: {
+                labels: ["Domestic"],
+                datasets: [{
+                    label: '%',
+                    data: [100],
+                    backgroundColor: [
+                        'rgba(54, 162, 235, 0.2)'
+                    ],
+                    hoverBackgroundColor: [
+                        'rgba(54, 162, 235, 0.9)'
+                    ]
+                }]
+            }
+ 
+        });
+
+        this.byCardTypePerProcessorChart = new Chart(this.byCardTypePerProcessor.nativeElement, {
+ 
+            type: 'bar',
+            data: {
+                labels: ["Visa", "Mastercard", "Discover", "Amex"],
+                datasets: [{
+                    label: '%',
+                    data: [40, 80, 60, 100],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            min: 0,
+                            max: 100,
+                            callback: function(value: any) {
+                                return value + "%"
+                            }
+                        }
+                    }]
+                }
+            }
+ 
+        });
+
+        this.byProcessorChart = new Chart(this.byProcessor.nativeElement, {
+ 
+            type: 'bar',
+            data: {
+                labels: ["Domestic", "Offshore"],
+                datasets: [{
+                    label: '%',
+                    data: [95, 85],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            min: 0,
+                            max: 100,
+                            callback: function(value: any) {
+                                return value + "%"
+                            }
+                        }
+                    }]
+                }
+            }
+ 
+        });
+
+        this.byBINChart = new Chart(this.byBIN.nativeElement, {
+ 
+            type: 'bar',
+            data: {
+                labels: ["Domestic", "Offshore"],
+                datasets: [{
+                    label: '%',
+                    data: [66, 96],
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            min: 0,
+                            max: 100,
+                            callback: function(value: any) {
+                                return value + "%"
+                            }
+                        }
+                    }]
+                }
+            }
+ 
+        });
+
     }
 
     openFilter(): any {

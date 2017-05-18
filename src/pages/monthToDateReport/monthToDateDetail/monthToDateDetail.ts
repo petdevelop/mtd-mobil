@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { ModalController } from 'ionic-angular';
+import { ModalController, FabContainer } from 'ionic-angular';
 
 import { ConferenceData } from '../../../providers/conference-data';
 import { MonthToDateCardPage } from '../monthToDateCard/monthToDateCard';
 import { MonthToDatePage } from '../monthToDate/monthToDate';
+import { MonthToDateFilterPage } from '../monthToDateFilter/monthToDateFilter';
+
 
 @Component({
   selector: 'page-monthToDateDetail',
@@ -57,7 +59,16 @@ export class MonthToDateDetailPage {
         this.date     = session.month + " " + session.day + ", " + session.year;
       }
     });
+  }
 
+  presentAlarm(fab: FabContainer): void {
+    fab.close();
+
+    let modal = this.modalCtrl.create(MonthToDateFilterPage);
+    modal.present();
+
+    modal.onWillDismiss((session?: any) => {
+    });
   }
 
 }
