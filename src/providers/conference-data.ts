@@ -135,8 +135,16 @@ export class ConferenceData {
     }
 
     return this.load().map((data: any) => {
-      return data.midHealth.filter((recordData: any) =>{ 
-        return recordData.mid_alias.toLowerCase().indexOf(query.toLowerCase()) > -1;
+      return data.midHealth.filter((recordData: any) => {
+        
+        let matchingProps = Object.keys(recordData).filter((prop: any) => {
+          return recordData[prop].toLowerCase().indexOf(query.toLowerCase()) > -1;
+        });
+
+        if (matchingProps.length > 0) {
+          return recordData;
+        }
+        
       })
     });
   }
