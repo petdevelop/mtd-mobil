@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Response } from '@angular/http';
 import { UserData } from './user-data';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -21,7 +21,7 @@ export class ConferenceData {
     }
   }
 
-  processData(data: any) {
+  processData(data: Response): Observable<any> {
     // just some good 'ol JS fun with objects and arrays
     // build up the data by linking speakers to sessions
     this.data = data.json();
@@ -127,13 +127,17 @@ export class ConferenceData {
     session.hide = !(matchesQueryText && matchesTracks && matchesSegment);
   }
 
-  getSpeakers() {
-    return this.load().map((data: any) => {
-      return data.speakers.sort((a: any, b: any) => {
-        let aName = a.name.split(' ').pop();
-        let bName = b.name.split(' ').pop();
-        return aName.localeCompare(bName);
+  getMidHealth(query?: string): Observable<any> {
+    if (! query) {
+      return this.load().map((data: any) => {
+        return data.midHealth;
       });
+    }
+
+    return this.load().map((data: any) => {
+      return data.midHealth.filter((recordData: any) =>{ 
+        return recordData.mid_alias.toLowerCase().indexOf(query.toLowerCase()) > -1;
+      })
     });
   }
 

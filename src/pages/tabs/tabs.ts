@@ -4,7 +4,7 @@ import { NavParams } from 'ionic-angular';
 
 import { ResultantKpiPage } from '../resultantKpi/resultantKpi';
 import { MonthToDateDetailPage } from '../monthToDateReport/monthToDateDetail/monthToDateDetail';
-import { MidHealthPage } from '../midHealth/midHealth';
+import { MidHealthPage } from '../midHealthReport/midHealth/midHealth';
 import { ChartPage } from '../chart/chart';
 import { ReportsPage } from '../reportsReport/reports/reports';
 

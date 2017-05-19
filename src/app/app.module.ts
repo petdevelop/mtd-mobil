@@ -14,7 +14,8 @@ import { MonthToDatePage } from '../pages/monthToDateReport/monthToDate/monthToD
 import { MonthToDateFilterPage } from '../pages/monthToDateReport/monthToDateFilter/monthToDateFilter';
 import { MonthToDateDetailPage } from '../pages/monthToDateReport/monthToDateDetail/monthToDateDetail';
 import { SignupPage } from '../pages/signup/signup';
-import { MidHealthPage } from '../pages/midHealth/midHealth';
+import { MidHealthPage } from '../pages/midHealthReport/midHealth/midHealth';
+import { MidHealthFilterPage } from '../pages/midHealthReport/midHealthFilter/midHealthFilter';
 import { TabsPage } from '../pages/tabs/tabs';
 import { SupportPage } from '../pages/support/support';
 import { ChartPage } from '../pages/chart/chart';
@@ -42,7 +43,8 @@ import { UserData } from '../providers/user-data';
     ChartPage,
     MonthToDateCardPage,
     ReportsPage,
-    ReportsFilterPage
+    ReportsFilterPage,
+    MidHealthFilterPage
   ],
   imports: [
     BrowserModule,
@@ -62,7 +64,9 @@ import { UserData } from '../providers/user-data';
         { component: ChartPage, name: 'ChartPage', segment: 'chart' },
         { component: MonthToDateCardPage, name: 'MonthToDateCardPage', segment: 'monthToDateCard' },
         { component: ReportsPage, name: 'ReportsPage', segment: 'reports'},
-        { component: ReportsFilterPage, name: 'ReportsFilterPage', segment: 'reportsFilter'}
+        { component: ReportsFilterPage, name: 'ReportsFilterPage', segment: 'reportsFilter'},
+        { component: MidHealthFilterPage, name: 'MidHealthFilterPage', segment: 'midHealthFilterPage'}
+        
       ]
     }),
     IonicStorageModule.forRoot()
@@ -82,7 +86,8 @@ import { UserData } from '../providers/user-data';
     SupportPage,
     ChartPage,
     ReportsPage,
-    ReportsFilterPage
+    ReportsFilterPage,
+    MidHealthFilterPage
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },

@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar no-border-bottom>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>MID Health</ion-title>
+    
+    <ion-buttons end>
+      <button ion-button icon-only (click)="presentFilter()">
+        <ion-icon ios="ios-options-outline" md="md-options"></ion-icon>
+      </button>
+    </ion-buttons>
+    
+  </ion-navbar>
+  <ion-toolbar no-border-top>
+    <ion-searchbar color="danger"
+                   [(ngModel)]="queryText"
+                   (ionInput)="updateData(queryText)"
+                   placeholder="Search">
+    </ion-searchbar>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content >
+
+    <ion-list>
+
+        <ion-list-header>
+            {{filter}}
+        </ion-list-header>
+
+        <button *ngFor="let item of data" ion-item>
+            <ion-icon item-left name="radio-button-on" color="secondary"></ion-icon>
+
+            <h3>{{item.mid}}</h3>
+            <p>{{item.mid_alias}}</p>
+        </button>
+    </ion-list>
+
+</ion-content>
+
+
+
+

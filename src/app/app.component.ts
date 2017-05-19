@@ -9,7 +9,7 @@ import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
 import { TabsPage } from '../pages/tabs/tabs';
 import { MonthToDateDetailPage } from '../pages/monthToDateReport/monthToDateDetail/monthToDateDetail';
-import { MidHealthPage } from '../pages/midHealth/midHealth';
+import { MidHealthPage } from '../pages/midHealthReport/midHealth/midHealth';
 import { SupportPage } from '../pages/support/support';
 import { ChartPage } from '../pages/chart/chart';
 import { ReportsPage } from '../pages/reportsReport/reports/reports';
@@ -71,9 +71,6 @@ export class ConferenceApp {
     public splashScreen: SplashScreen
   ) {
 
-    // set tabs as root page
-    this.rootPage = TabsPage;
-
     // load the conference data
     confData.load();
 
@@ -81,6 +78,10 @@ export class ConferenceApp {
     this.userData.hasLoggedIn().then((hasLoggedIn) => {
       if (hasLoggedIn === true) {
         this.isLoggedIn = true;
+        this.rootPage = TabsPage;
+      } else {
+        // set tabs as root page
+        this.rootPage = LoginPage;
       }
     });
 
@@ -89,6 +90,11 @@ export class ConferenceApp {
 
   openPage(page: PageInterface) {
     let params = {};
+
+    if (page.logsOut === true) {
+      // Give the menu time to close before changing to logged out
+      return this.userData.logout();
+    }
 
     // the nav component was found using @ViewChild(Nav)
     // setRoot on the nav to remove previous pages and only have this page
@@ -108,25 +114,22 @@ export class ConferenceApp {
         console.log(`Didn't set nav root: ${err}`);
       });
     }
-
-    if (page.logsOut === true) {
-      // Give the menu time to close before changing to logged out
-      this.userData.logout();
-    }
   }
 
   listenToLoginEvents() {
     this.events.subscribe('user:login', () => {
       this.isLoggedIn = true;
+      this.nav.setRoot(TabsPage);
     });
 
     this.events.subscribe('user:signup', () => {
       this.isLoggedIn = true;
+      this.nav.setRoot(TabsPage);
     });
 
     this.events.subscribe('user:logout', () => {
       this.isLoggedIn = false;
-      this.nav.setRoot('LoginPage');
+      this.nav.setRoot(LoginPage);
     });
   }
 

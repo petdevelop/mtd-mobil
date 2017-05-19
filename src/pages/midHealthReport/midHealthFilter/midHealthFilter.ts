@@ -4,9 +4,9 @@ import { AlertController, NavParams, ViewController } from 'ionic-angular';
  
 @Component({
   selector: 'page-reportsFilter',
-  templateUrl: 'reportsFilter.html'
+  templateUrl: 'midHealthFilter.html'
 })
-export class ReportsFilterPage {
+export class MidHealthFilterPage {
 
     filterData: any;
 
@@ -25,19 +25,15 @@ export class ReportsFilterPage {
         this.filterData.endDate = null;
     }
 
-
     applyFilters() {
         if (this.filterData.rangeBy == 'Custom-Range' && (this.filterData.startDate == null || this.filterData.endDate == null)) {
             this.showAlert();
         } else {
-            // Pass back a new array of track names to exclude
             this.dismiss();
         }
     }
 
     dismiss(data?: any) {
-        // using the injected ViewController this page
-        // can "dismiss" itself and pass back data
         this.viewCtrl.dismiss(data);
     }    
 

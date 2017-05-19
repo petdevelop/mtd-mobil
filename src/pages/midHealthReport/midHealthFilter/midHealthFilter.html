@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">Cancel</button>
+    </ion-buttons>
+
+    <ion-title>
+      Filter MID Health
+    </ion-title>
+
+    <ion-buttons end>
+      <button ion-button (click)="applyFilters()" strong>Done</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+ 
+<ion-list>
+
+  <ion-item-divider></ion-item-divider>
+
+  <ion-item>
+    <ion-label>Merchant</ion-label>
+    <ion-select [(ngModel)]="filterData.merchant">
+      <ion-option value="Filter-by-Merchant">Filter by Merchant</ion-option>
+      <ion-option value="View-All">View All</ion-option>
+      <ion-option value="View-In-House-AND-Subsidiaries">View In House AND Subsidiaries</ion-option>
+      <ion-option disabled>View In House OR Subsidiaries</ion-option>
+      <ion-option value="In-House">In House</ion-option>
+      <ion-option value="InstforHealth">InstforHealth</ion-option>
+      <ion-option value="Total-Body-Wellness">Total Body Wellness</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Rating</ion-label>
+    <ion-select [(ngModel)]="filterData.rating">
+      <ion-option value="All">All</ion-option>
+      <ion-option value="3919719">3919719</ion-option>
+      <ion-option value="884130">884130</ion-option>
+      <ion-option value="AdTech">AdTech TransactPro Healthstore</ion-option>
+      <ion-option value="Amex-CB911">Amex CB911</ion-option>
+      <ion-option value="PP-BeautyHealthProd">PP BeautyHealthProd</ion-option>
+    </ion-select>
+  </ion-item>
+
+</ion-list>
+
+
+ 
+</ion-content>
