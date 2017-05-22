@@ -31,7 +31,7 @@
             {{filter.merchant}} - {{filter.rating}}
         </ion-list-header>
 
-        <button *ngFor="let item of data" ion-item>
+        <button *ngFor="let item of data" ion-item (click)="goToMidHealCard(item)">
             <ion-icon item-left name="radio-button-on" color="secondary"></ion-icon>
 
             <h3>{{item.mid}}</h3>

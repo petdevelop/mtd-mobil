@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { ModalController } from 'ionic-angular';
+import { ModalController, NavController } from 'ionic-angular';
 
 import { ConferenceData } from '../../../providers/conference-data';
 import { MidHealthFilterPage } from '../midHealthFilter/midHealthFilter';
+import { MidHealthCardPage } from '../midHealthCard/midHealthCard';
 
 
 @Component({
@@ -16,7 +17,8 @@ export class MidHealthPage {
 
   constructor(
       public confData: ConferenceData,
-      public modalCtrl: ModalController) {
+      public modalCtrl: ModalController,
+      public nav: NavController) {
 
         this.filter = {
             'merchant' : 'View-All',
@@ -41,6 +43,10 @@ export class MidHealthPage {
     modal.onWillDismiss((data?: any) => {
       this.filter = data;
     });
+  }
+
+  goToMidHealCard(item: any): void {
+    this.nav.push(MidHealthCardPage, {'data': item});
   }
 
 }

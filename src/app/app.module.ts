@@ -16,6 +16,7 @@ import { MonthToDateDetailPage } from '../pages/monthToDateReport/monthToDateDet
 import { SignupPage } from '../pages/signup/signup';
 import { MidHealthPage } from '../pages/midHealthReport/midHealth/midHealth';
 import { MidHealthFilterPage } from '../pages/midHealthReport/midHealthFilter/midHealthFilter';
+import { MidHealthCardPage } from '../pages/midHealthReport/midHealthCard/midHealthCard';
 import { TabsPage } from '../pages/tabs/tabs';
 import { SupportPage } from '../pages/support/support';
 import { ChartPage } from '../pages/chart/chart';
@@ -44,28 +45,31 @@ import { UserData } from '../providers/user-data';
     MonthToDateCardPage,
     ReportsPage,
     ReportsFilterPage,
-    MidHealthFilterPage
+    MidHealthFilterPage,
+    MidHealthCardPage
   ],
   imports: [
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(ConferenceApp, {}, {
       links: [
-        { component: TabsPage, name: 'TabsPage', segment: 'tabs' },
-        { component: MonthToDatePage, name: 'MonthToDate', segment: 'monthToDate' },
-        { component: MonthToDateDetailPage, name: 'MonthToDateDetail', segment: 'monthToDateDetailDetail/:name' },
-        { component: MonthToDateFilterPage, name: 'MonthToDateFilter', segment: 'monthToDateFilter' },
-        { component: MidHealthPage, name: 'MidHealth', segment: 'midHealth' },
-        { component: ResultantKpiPage, name: 'ResultantKpi', segment: 'resultantKpi' },
-        { component: SupportPage, name: 'SupportPage', segment: 'support' },
-        { component: LoginPage, name: 'LoginPage', segment: 'login' },
-        { component: AccountPage, name: 'AccountPage', segment: 'account' },
-        { component: SignupPage, name: 'SignupPage', segment: 'signup' },
-        { component: ChartPage, name: 'ChartPage', segment: 'chart' },
-        { component: MonthToDateCardPage, name: 'MonthToDateCardPage', segment: 'monthToDateCard' },
-        { component: ReportsPage, name: 'ReportsPage', segment: 'reports'},
-        { component: ReportsFilterPage, name: 'ReportsFilterPage', segment: 'reportsFilter'},
-        { component: MidHealthFilterPage, name: 'MidHealthFilterPage', segment: 'midHealthFilterPage'}
+        // { component: TabsPage, name: 'TabsPage', segment: 'tabs' },
+        // { component: MonthToDatePage, name: 'MonthToDate', segment: 'monthToDate' },
+        // { component: MonthToDateDetailPage, name: 'MonthToDateDetail', segment: 'monthToDateDetailDetail' },
+        // { component: MonthToDateFilterPage, name: 'MonthToDateFilter', segment: 'monthToDateFilter' },
+        // { component: MidHealthPage, name: 'MidHealth', segment: 'midHealth' },
+        // { component: ResultantKpiPage, name: 'ResultantKpi', segment: 'resultantKpi' },
+        // { component: SupportPage, name: 'SupportPage', segment: 'support' },
+        // { component: LoginPage, name: 'LoginPage', segment: 'login' },
+        // { component: AccountPage, name: 'AccountPage', segment: 'account' },
+        // { component: SignupPage, name: 'SignupPage', segment: 'signup' },
+        // { component: ChartPage, name: 'ChartPage', segment: 'chart' },
+        // { component: MonthToDateCardPage, name: 'MonthToDateCardPage', segment: 'monthToDateCard' },
+        // { component: ReportsPage, name: 'ReportsPage', segment: 'reports'},
+        // { component: ReportsFilterPage, name: 'ReportsFilterPage', segment: 'reportsFilter'},
+        // { component: MidHealthFilterPage, name: 'MidHealthFilterPage', segment: 'midHealthFilterPage'},
+        // { component: MidHealthFilterPage, name: 'MidHealthFilterPage', segment: 'midHealthFilterPage'},
+        // MidHealthCardPage
         
       ]
     }),
@@ -87,7 +91,8 @@ import { UserData } from '../providers/user-data';
     ChartPage,
     ReportsPage,
     ReportsFilterPage,
-    MidHealthFilterPage
+    MidHealthFilterPage,
+    MidHealthCardPage
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },
