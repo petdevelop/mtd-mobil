@@ -11,12 +11,17 @@ import { MidHealthFilterPage } from '../midHealthFilter/midHealthFilter';
 })
 export class MidHealthPage {
   data: Array<any> = [];
-  filter: string = "In House - All";
+  filter: any = null;
   confDate: string;
 
   constructor(
       public confData: ConferenceData,
       public modalCtrl: ModalController) {
+
+        this.filter = {
+            'merchant' : 'View-All',
+            'rating' : 'All'
+        }
   }
 
   ionViewDidLoad() {
@@ -24,18 +29,17 @@ export class MidHealthPage {
   }
 
   updateData(query?: string) {
-
     this.confData.getMidHealth(query).subscribe((data: any) => {
       this.data = data;
     });
   }
 
   presentFilter() {
-    let modal = this.modalCtrl.create(MidHealthFilterPage);
+    let modal = this.modalCtrl.create(MidHealthFilterPage, {'filter': this.filter});
     modal.present();
 
-    modal.onWillDismiss((session?: any) => {
-     
+    modal.onWillDismiss((data?: any) => {
+      this.filter = data;
     });
   }
 

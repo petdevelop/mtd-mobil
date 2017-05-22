@@ -9,7 +9,7 @@
     </ion-title>
 
     <ion-buttons end>
-      <button ion-button (click)="applyFilters()" strong>Done</button>
+      <button ion-button (click)="dismiss()" strong>Done</button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
@@ -37,11 +37,10 @@
     <ion-label>Rating</ion-label>
     <ion-select [(ngModel)]="filterData.rating">
       <ion-option value="All">All</ion-option>
-      <ion-option value="3919719">3919719</ion-option>
-      <ion-option value="884130">884130</ion-option>
-      <ion-option value="AdTech">AdTech TransactPro Healthstore</ion-option>
-      <ion-option value="Amex-CB911">Amex CB911</ion-option>
-      <ion-option value="PP-BeautyHealthProd">PP BeautyHealthProd</ion-option>
+      <ion-option value="Good">Good</ion-option>
+      <ion-option value="Low-Risk">Low Risk</ion-option>
+      <ion-option value="Medium-Risk">Medium Risk</ion-option>
+      <ion-option value="High-Risk">High-Risk</ion-option>
     </ion-select>
   </ion-item>
 

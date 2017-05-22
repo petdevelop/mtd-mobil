@@ -136,7 +136,6 @@ export class ConferenceData {
 
     return this.load().map((data: any) => {
       return data.midHealth.filter((recordData: any) => {
-        
         let matchingProps = Object.keys(recordData).filter((prop: any) => {
           return recordData[prop].toLowerCase().indexOf(query.toLowerCase()) > -1;
         });
@@ -144,7 +143,6 @@ export class ConferenceData {
         if (matchingProps.length > 0) {
           return recordData;
         }
-        
       })
     });
   }

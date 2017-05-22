@@ -30,7 +30,6 @@ export class ReportsFilterPage {
         if (this.filterData.rangeBy == 'Custom-Range' && (this.filterData.startDate == null || this.filterData.endDate == null)) {
             this.showAlert();
         } else {
-            // Pass back a new array of track names to exclude
             this.dismiss();
         }
     }
