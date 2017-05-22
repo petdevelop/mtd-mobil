@@ -46,7 +46,19 @@ export class MidHealthPage {
   }
 
   goToMidHealCard(item: any): void {
+    item['ratingColor'] = this.getRatingColor(item.rating);
     this.nav.push(MidHealthCardPage, {'data': item});
+  }
+
+  getRatingColor(rating: string): string {
+    let ratings: { [rating: string]: string } = {
+      'Good': 'secondary',
+      'Low Risk' : 'favorite',
+      'Medium Risk' : 'google',
+      'High Risk' : 'danger',
+    };
+
+    return ratings[rating];
   }
 
 }

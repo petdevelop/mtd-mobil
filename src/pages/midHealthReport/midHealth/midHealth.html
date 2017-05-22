@@ -32,7 +32,7 @@
         </ion-list-header>
 
         <button *ngFor="let item of data" ion-item (click)="goToMidHealCard(item)">
-            <ion-icon item-left name="radio-button-on" color="secondary"></ion-icon>
+            <ion-icon item-left name="radio-button-on" [color]="getRatingColor(item.rating)"></ion-icon>
 
             <h3>{{item.mid}}</h3>
             <p>{{item.mid_alias}}</p>
