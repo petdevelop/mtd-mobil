@@ -2,6 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { Events, MenuController, Nav, Platform } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Storage } from '@ionic/storage';
+import { StatusBar } from '@ionic-native/status-bar';
+import { Push, PushToken } from '@ionic/cloud-angular';
 
 import { ResultantKpiPage } from '../pages/resultantKpi/resultantKpi';
 import { AccountPage } from '../pages/account/account';
@@ -43,7 +45,7 @@ export class ConferenceApp {
   // the left menu only works after login
   // the login page disables the left menu
   appPages: PageInterface[] = [
-    { title: 'Reports', name: 'TabsPage', component: TabsPage, tabComponent: ReportsPage, index: 0, icon: 'md-trending-up' },
+    { title: 'Reports', name: 'TabsPage', component: TabsPage, tabComponent: ReportsPage, index: 0, icon: 'trending-up' },
     { title: 'Month-to-Date', name: 'TabsPage', component: TabsPage, tabComponent: MonthToDateDetailPage, index: 1, icon: 'calendar' },
     { title: 'MID Health', name: 'TabsPage', component: TabsPage, tabComponent: MidHealthPage, index: 2, icon: 'contacts' },
     { title: 'Resultant KPI', name: 'TabsPage', component: TabsPage, tabComponent: ResultantKpiPage, index: 3, icon: 'alarm' },
@@ -68,7 +70,9 @@ export class ConferenceApp {
     public platform: Platform,
     public confData: ConferenceData,
     public storage: Storage,
-    public splashScreen: SplashScreen
+    public splashScreen: SplashScreen,
+    private statusBar: StatusBar,
+    public push: Push
   ) {
 
     // load the conference data
@@ -86,7 +90,26 @@ export class ConferenceApp {
     });
 
     this.listenToLoginEvents();
+
+    this.platform.ready().then(() => {
+      // status bar
+      // this.statusBar.styleBlackTranslucent();
+
+      // register for push notifications
+      this.push.register().then((t: PushToken) => {
+        alert('Push register: ' + t.registered);
+        return this.push.saveToken(t);
+      }).then((t: PushToken) => {
+        alert('Token saved: ' + t.token);
+      });
+
+      this.push.rx.notification().subscribe((msg) => {
+        alert('I received awesome push: ' + msg);
+      });
+    });
+
   }
+
 
   openPage(page: PageInterface) {
     let params = {};

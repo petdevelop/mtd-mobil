@@ -5,6 +5,8 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { IonicStorageModule } from '@ionic/storage';
+import { StatusBar } from '@ionic-native/status-bar';
+import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 
 import { ConferenceApp } from './app.component';
 import { ResultantKpiPage } from '../pages/resultantKpi/resultantKpi';
@@ -26,6 +28,24 @@ import { ReportsFilterPage } from '../pages/reportsReport/reportsFilter/reportsF
 
 import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
+
+const cloudSettings: CloudSettings = {
+  'core': {
+    'app_id': '474dea79'
+  },
+  'push': {
+    'sender_id': '899714556342',
+    'pluginConfig': {
+      'ios': {
+        'badge': true,
+        'sound': true
+      },
+      'android': {
+        'iconColor': '#343434'
+      }
+    }
+  }
+};
 
 
 @NgModule({
@@ -73,7 +93,8 @@ import { UserData } from '../providers/user-data';
         
       ]
     }),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    CloudModule.forRoot(cloudSettings)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -99,7 +120,8 @@ import { UserData } from '../providers/user-data';
     ConferenceData,
     UserData,
     InAppBrowser,
-    SplashScreen
+    SplashScreen,
+    StatusBar
   ]
 })
 export class AppModule { }
