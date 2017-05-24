@@ -92,20 +92,7 @@ export class ConferenceApp {
     this.listenToLoginEvents();
 
     this.platform.ready().then(() => {
-      // status bar
-      // this.statusBar.styleBlackTranslucent();
-
-      // register for push notifications
-      this.push.register().then((t: PushToken) => {
-        alert('Push register: ' + t.registered);
-        return this.push.saveToken(t);
-      }).then((t: PushToken) => {
-        alert('Token saved: ' + t.token);
-      });
-
-      this.push.rx.notification().subscribe((msg) => {
-        alert('I received awesome push: ' + msg);
-      });
+      this.platformReady();
     });
 
   }
@@ -164,6 +151,21 @@ export class ConferenceApp {
     // Call any initial plugins when ready
     this.platform.ready().then(() => {
       this.splashScreen.hide();
+
+      this.statusBar.styleBlackTranslucent();
+
+      this.push.register().then((t: PushToken) => {
+        return this.push.saveToken(t);
+      }).then((t: PushToken) => {
+        alert('Token saved:'+ t.token);
+      }).catch(error => {
+        alert(error);
+      });
+
+      this.push.rx.notification().subscribe((msg) => {
+        alert(msg.title + ': ' + msg.text);
+      });
+
     });
   }
 
