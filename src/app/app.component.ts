@@ -3,7 +3,7 @@ import { Events, MenuController, Nav, Platform } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Storage } from '@ionic/storage';
 import { StatusBar } from '@ionic-native/status-bar';
-import { Push, PushToken } from '@ionic/cloud-angular';
+import { Push, PushToken, Deploy } from '@ionic/cloud-angular';
 
 import { ResultantKpiPage } from '../pages/resultantKpi/resultantKpi';
 import { AccountPage } from '../pages/account/account';
@@ -72,7 +72,8 @@ export class ConferenceApp {
     public storage: Storage,
     public splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    public push: Push
+    public push: Push,
+    public deploy: Deploy
   ) {
 
     // load the conference data
@@ -150,11 +151,12 @@ export class ConferenceApp {
   platformReady() {
     // Call any initial plugins when ready
     this.platform.ready().then(() => {
+      // spash screen
       this.splashScreen.hide();
-
+      // status bar
       this.statusBar.styleLightContent();
       this.statusBar.backgroundColorByHexString('#f53d3d');
-
+      // register and subscribe
       this.push.register().then((t: PushToken) => {
         return this.push.saveToken(t);
       }).then((t: PushToken) => {
@@ -165,6 +167,15 @@ export class ConferenceApp {
 
       this.push.rx.notification().subscribe((msg) => {
         alert(msg.title + ': ' + msg.text);
+      });
+
+      // look for deployments
+      this.deploy.channel = 'dev';
+      this.deploy.check().then((snapshotAvailabe: boolean) => {
+        if (snapshotAvailabe) {
+          this.deploy.extract();
+          this.deploy.load();
+        }
       });
 
     });
