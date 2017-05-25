@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons start>
-      <button ion-button (click)="dismiss()">Cancel</button>
+      <button ion-button (tap)="dismiss()">Cancel</button>
     </ion-buttons>
 
     <ion-title>
@@ -9,7 +9,7 @@
     </ion-title>
 
     <ion-buttons end>
-      <button ion-button (click)="applyFilters()" strong>Done</button>
+      <button ion-button (tap)="applyFilters()" strong>Done</button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -43,7 +43,7 @@
   </ion-list>
 
   <ion-list>
-    <button ion-item (click)="resetFilters()" detail-none class="reset-filters">
+    <button ion-item (tap)="resetFilters()" detail-none class="reset-filters">
       Reset All Notifications
     </button>
   </ion-list>

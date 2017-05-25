@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar no-border-bottom>
     <ion-buttons start>
-      <button ion-button (click)="dismiss()">Cancel</button>
+      <button ion-button (tap)="dismiss()">Cancel</button>
     </ion-buttons>
 
     <ion-title>Month to Date Filter</ion-title>
@@ -33,7 +33,7 @@
 
       <ion-item-sliding *ngFor="let session of group.sessions" #slidingItem [attr.track]="session.tracks[0] | lowercase" [hidden]="session.hide">
 
-        <button ion-item (click)="applyFilters(group.month, group.year, session)">
+        <button ion-item (tap)="applyFilters(group.month, group.year, session)">
           <h3>Day {{session.day}}</h3>
           <p>
             No data available in table
@@ -42,10 +42,10 @@
         </button>
 
         <ion-item-options>
-          <button ion-button color="favorite" (click)="addFavorite(slidingItem, session)" *ngIf="segment === 'all'">
+          <button ion-button color="favorite" (tap)="addFavorite(slidingItem, session)" *ngIf="segment === 'all'">
             Favorite
           </button>
-          <button ion-button color="danger" (click)="removeFavorite(slidingItem, session, 'Remove Favorite')" *ngIf="segment === 'favorites'">
+          <button ion-button color="danger" (tap)="removeFavorite(slidingItem, session, 'Remove Favorite')" *ngIf="segment === 'favorites'">
             Remove
           </button>
         </ion-item-options>

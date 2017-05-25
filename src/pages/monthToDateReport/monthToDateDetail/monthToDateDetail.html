@@ -7,7 +7,7 @@
     <ion-title>{{date}}</ion-title>
     
     <ion-buttons end>
-      <button ion-button icon-only (click)="presentFilter()">
+      <button ion-button icon-only (tap)="presentFilter()">
         <ion-icon ios="ios-options-outline" md="md-options"></ion-icon>
       </button>
     </ion-buttons>
@@ -42,7 +42,7 @@
   <ion-fab bottom right #fab>
     <button ion-fab color="danger"><ion-icon name="share"></ion-icon></button>
     <ion-fab-list side="top">
-      <button ion-fab color="danger" (click)="presentAlarm(fab)"><ion-icon name="md-alarm"></ion-icon></button>
+      <button ion-fab color="danger" (tap)="presentAlarm(fab)"><ion-icon name="md-alarm"></ion-icon></button>
       <button ion-fab color="danger"><ion-icon name="share-alt"></ion-icon></button>
     </ion-fab-list>
   </ion-fab>    

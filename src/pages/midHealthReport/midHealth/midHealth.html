@@ -7,7 +7,7 @@
     <ion-title>MID Health</ion-title>
     
     <ion-buttons end>
-      <button ion-button icon-only (click)="presentFilter()">
+      <button ion-button icon-only (tap)="presentFilter()">
         <ion-icon ios="ios-options-outline" md="md-options"></ion-icon>
       </button>
     </ion-buttons>
@@ -31,7 +31,7 @@
             {{filter.merchant}} - {{filter.rating}}
         </ion-list-header>
 
-        <button *ngFor="let item of data" ion-item (click)="goToMidHealCard(item)">
+        <button *ngFor="let item of data" ion-item (tap)="goToMidHealCard(item)">
             <ion-icon item-left name="radio-button-on" [color]="getRatingColor(item.rating)"></ion-icon>
 
             <h3>{{item.mid}}</h3>

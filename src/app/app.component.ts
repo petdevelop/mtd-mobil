@@ -152,14 +152,15 @@ export class ConferenceApp {
     this.platform.ready().then(() => {
       this.splashScreen.hide();
 
-      this.statusBar.styleBlackTranslucent();
+      this.statusBar.styleLightContent();
+      this.statusBar.backgroundColorByHexString('#f53d3d');
 
       this.push.register().then((t: PushToken) => {
         return this.push.saveToken(t);
       }).then((t: PushToken) => {
-        alert('Token saved:'+ t.token);
+        console.log('Token saved:'+ t.token);
       }).catch(error => {
-        alert(error);
+        console.log(error);
       });
 
       this.push.rx.notification().subscribe((msg) => {
