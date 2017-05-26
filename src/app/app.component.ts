@@ -171,10 +171,16 @@ export class ConferenceApp {
 
       // look for deployments
       this.deploy.channel = 'dev';
-      this.deploy.check().then((snapshotAvailabe: boolean) => {
-        if (snapshotAvailabe) {
-          this.deploy.extract();
-          this.deploy.load();
+      this.deploy.check().then((snapshotAvailable: boolean) => {
+        if (snapshotAvailable) {
+          alert(snapshotAvailable);
+
+          this.deploy.extract().then(() => {
+            alert('success extracting deploy');
+            this.deploy.load();
+          }).catch(error => {
+            alert('error extracting deploy:' + error);
+          })
         }
       });
 
